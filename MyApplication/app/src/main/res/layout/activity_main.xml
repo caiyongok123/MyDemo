@@ -52,7 +52,7 @@
         <Button
             android:id="@+id/button5"
             android:textAllCaps="false"
-            android:text="熄屏后或后台的计时器是否休眠"
+            android:text="电源设置阻止熄屏后或后台的计时器休眠"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
