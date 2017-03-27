@@ -1,4 +1,4 @@
-package com.example.cy.myapplication;
+package com.example.cy.myapplication.activity;
 
 import android.app.Application;
 

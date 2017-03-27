@@ -56,6 +56,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
+        <Button
+            android:id="@+id/button6"
+            android:textAllCaps="false"
+            android:text="获取系统相册所有图片"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
 
     </LinearLayout>
 

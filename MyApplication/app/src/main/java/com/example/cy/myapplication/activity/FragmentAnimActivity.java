@@ -1,4 +1,4 @@
-package com.example.cy.myapplication;
+package com.example.cy.myapplication.activity;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.cy.myapplication.R;
 import com.example.cy.myapplication.fragment.MyFragment;
 
 import butterknife.ButterKnife;

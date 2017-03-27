@@ -1,16 +1,15 @@
-package com.example.cy.myapplication;
+package com.example.cy.myapplication.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.TabLayout.Tab;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Toast;
+
+import com.example.cy.myapplication.R;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import butterknife.OnClick;
 
 
 public class TabLayoutTestActivity extends AppCompatActivity {

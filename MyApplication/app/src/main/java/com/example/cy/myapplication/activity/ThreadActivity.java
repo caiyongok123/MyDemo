@@ -1,4 +1,4 @@
-package com.example.cy.myapplication;
+package com.example.cy.myapplication.activity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.os.Message;
 import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+
+import com.example.cy.myapplication.R;
 
 import java.util.Timer;
 import java.util.TimerTask;

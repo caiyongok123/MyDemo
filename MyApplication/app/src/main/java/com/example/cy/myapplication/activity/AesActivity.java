@@ -1,9 +1,10 @@
-package com.example.cy.myapplication;
+package com.example.cy.myapplication.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.example.cy.myapplication.R;
 import com.example.cy.myapplication.util.AESUtil;
 
 import butterknife.ButterKnife;
