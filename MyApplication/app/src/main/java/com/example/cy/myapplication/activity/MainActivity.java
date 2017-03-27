@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this,ThreadActivity.class));
                 break;
             case R.id.button6:
-                startActivity(new Intent(this,ThreadActivity.class));
+                startActivity(new Intent(this,ImagesActivity.class));
                 break;
         }
     }
