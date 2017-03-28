@@ -63,6 +63,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
+        <Button
+            android:id="@+id/button7"
+            android:textAllCaps="false"
+            android:text="使用系统下载器下载"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
 
     </LinearLayout>
 

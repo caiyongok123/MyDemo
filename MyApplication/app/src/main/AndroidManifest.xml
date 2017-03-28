@@ -31,7 +31,8 @@
         <activity android:name=".activity.FragmentAnimActivity" />
         <activity android:name=".activity.AesActivity" />
         <activity android:name=".activity.ThreadActivity" />
-        <activity android:name=".activity.ImagesActivity"></activity>
+        <activity android:name=".activity.ImagesActivity" />
+        <activity android:name=".activity.SystemDownLoadActivity"></activity>
     </application>
 
 </manifest>
