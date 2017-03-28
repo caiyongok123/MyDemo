@@ -13,6 +13,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.cy.myapplication.R;
+import com.example.cy.myapplication.util.CommonUtil;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -47,6 +48,7 @@ public class SystemDownLoadActivity extends AppCompatActivity {
             downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
             Uri uri = Uri.parse("https://qd.myapp.com/myapp/qqteam/AndroidQQ/mobileqq_android.apk");
             DownloadManager.Request request = new DownloadManager.Request(uri);
+            request.setMimeType("application/vnd.android.package-archive");
             requestId = downloadManager.enqueue(request);
             Log.e("请求id",requestId+"");
         }
@@ -63,7 +65,7 @@ public class SystemDownLoadActivity extends AppCompatActivity {
     public static void startInstall(Context context, Uri uri) {
         Intent install = new Intent(Intent.ACTION_VIEW);
         install.setDataAndType(uri, "application/vnd.android.package-archive");
-        //install.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        install.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(install);
     }
 
@@ -77,6 +79,7 @@ public class SystemDownLoadActivity extends AppCompatActivity {
                 Log.e("请求完成id",id+"");
                 if (id == requestId && id != 0){
                     Uri uri = downloadManager.getUriForDownloadedFile(requestId);
+                    //uri=Uri.parse(CommonUtil.getFilePathByUri(context,uri));
                     startInstall(context,uri);
                 }
             }
