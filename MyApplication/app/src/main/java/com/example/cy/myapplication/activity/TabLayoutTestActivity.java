@@ -9,13 +9,13 @@ import android.widget.Toast;
 import com.example.cy.myapplication.R;
 
 import butterknife.ButterKnife;
-import butterknife.BindView;
+import butterknife.Bind;
 
 
 public class TabLayoutTestActivity extends AppCompatActivity {
 
 
-    @BindView(R.id.tabLayout)
+    @Bind(R.id.tabLayout)
     TabLayout tabLayout;
 
     @Override

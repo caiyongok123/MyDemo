@@ -7,13 +7,13 @@ import android.widget.TextView;
 import com.example.cy.myapplication.R;
 import com.example.cy.myapplication.util.AESUtil;
 
-import butterknife.BindView;
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class AesActivity extends AppCompatActivity {
 
 
-    @BindView(R.id.textView2)
+    @Bind(R.id.textView2)
     TextView textView2;
     //密钥种子
     private String key = "0123456789ABCDEF";

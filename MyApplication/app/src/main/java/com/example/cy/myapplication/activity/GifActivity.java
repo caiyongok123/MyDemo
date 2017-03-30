@@ -16,14 +16,14 @@ import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import butterknife.ButterKnife;
-import butterknife.BindView;
+import butterknife.Bind;
 import butterknife.OnClick;
 
 public class GifActivity extends AppCompatActivity {
 
-    @BindView(R.id.sdv)
+    @Bind(R.id.sdv)
     SimpleDraweeView sdv;
-    @BindView(R.id.imageView)
+    @Bind(R.id.imageView)
     ImageView imageView;
 
     /**

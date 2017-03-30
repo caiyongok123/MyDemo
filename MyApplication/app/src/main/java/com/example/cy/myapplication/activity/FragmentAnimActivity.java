@@ -29,7 +29,7 @@ public class FragmentAnimActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_anim);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         fragment = new MyFragment();
         FragmentTransaction ft = getFragmentManager().beginTransaction();

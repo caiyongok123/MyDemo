@@ -14,7 +14,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import butterknife.ButterKnife;
-import butterknife.BindView;
+import butterknife.Bind;
 
 /**
  *
@@ -31,7 +31,7 @@ public class ThreadActivity extends AppCompatActivity {
 
     PowerManager.WakeLock wakeLock;
 
-    @BindView(R.id.tv)
+    @Bind(R.id.tv)
     TextView tv;
     int time = 0;
 

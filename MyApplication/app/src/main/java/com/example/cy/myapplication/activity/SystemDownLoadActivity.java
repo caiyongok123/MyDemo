@@ -36,7 +36,7 @@ public class SystemDownLoadActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_system_down_load);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         registerReceiver(downLoadReceiver,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
     }
 

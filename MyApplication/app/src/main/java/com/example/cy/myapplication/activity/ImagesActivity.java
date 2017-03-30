@@ -29,13 +29,13 @@ import java.util.Map;
 import java.util.Set;
 
 import butterknife.ButterKnife;
-import butterknife.BindView;
+import butterknife.Bind;
 
 import android.provider.MediaStore.Images.Thumbnails;
 
 public class ImagesActivity extends AppCompatActivity {
 
-    @BindView(R.id.rv)
+    @Bind(R.id.rv)
     RecyclerView rv;
     MyAdapter adapter;
 

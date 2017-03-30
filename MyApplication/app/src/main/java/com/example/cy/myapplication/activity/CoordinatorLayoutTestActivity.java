@@ -15,14 +15,14 @@ import android.widget.TextView;
 import com.example.cy.myapplication.R;
 
 import butterknife.ButterKnife;
-import butterknife.BindView;
+import butterknife.Bind;
 
 public class CoordinatorLayoutTestActivity extends AppCompatActivity {
 
 
-    @BindView(R.id.vp)
+    @Bind(R.id.vp)
     ViewPager vp;
-    @BindView(R.id.mTabLayout)
+    @Bind(R.id.mTabLayout)
     TabLayout mTabLayout;
 
     @Override
