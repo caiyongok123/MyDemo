@@ -29,13 +29,13 @@ import java.util.Map;
 import java.util.Set;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 import android.provider.MediaStore.Images.Thumbnails;
 
 public class ImagesActivity extends AppCompatActivity {
 
-    @InjectView(R.id.rv)
+    @BindView(R.id.rv)
     RecyclerView rv;
     MyAdapter adapter;
 
@@ -57,7 +57,7 @@ public class ImagesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_images);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         initView();
         initData();

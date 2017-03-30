@@ -16,14 +16,14 @@ import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 public class GifActivity extends AppCompatActivity {
 
-    @InjectView(R.id.sdv)
+    @BindView(R.id.sdv)
     SimpleDraweeView sdv;
-    @InjectView(R.id.imageView)
+    @BindView(R.id.imageView)
     ImageView imageView;
 
     /**
@@ -37,7 +37,7 @@ public class GifActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gif);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
     }
 
 

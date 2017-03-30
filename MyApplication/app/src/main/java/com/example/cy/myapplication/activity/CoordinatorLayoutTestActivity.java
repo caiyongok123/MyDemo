@@ -15,21 +15,21 @@ import android.widget.TextView;
 import com.example.cy.myapplication.R;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 public class CoordinatorLayoutTestActivity extends AppCompatActivity {
 
 
-    @InjectView(R.id.vp)
+    @BindView(R.id.vp)
     ViewPager vp;
-    @InjectView(R.id.mTabLayout)
+    @BindView(R.id.mTabLayout)
     TabLayout mTabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coordinator_layout_test);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         final View view1 = LayoutInflater.from(this).inflate(R.layout.layout_recyclerview, null);
         RecyclerView rcv1 = (RecyclerView) view1.findViewById(R.id.rcv);
