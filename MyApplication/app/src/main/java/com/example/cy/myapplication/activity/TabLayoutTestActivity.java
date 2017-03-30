@@ -9,20 +9,20 @@ import android.widget.Toast;
 import com.example.cy.myapplication.R;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 
 public class TabLayoutTestActivity extends AppCompatActivity {
 
 
-    @InjectView(R.id.tabLayout)
+    @BindView(R.id.tabLayout)
     TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tablayout_test);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

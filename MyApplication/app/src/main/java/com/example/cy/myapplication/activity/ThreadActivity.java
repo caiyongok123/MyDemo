@@ -14,7 +14,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  *
@@ -31,7 +31,7 @@ public class ThreadActivity extends AppCompatActivity {
 
     PowerManager.WakeLock wakeLock;
 
-    @InjectView(R.id.tv)
+    @BindView(R.id.tv)
     TextView tv;
     int time = 0;
 
@@ -49,7 +49,7 @@ public class ThreadActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thread);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         //电源管理设置让后台线程不会休眠
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);

@@ -7,23 +7,24 @@ import android.widget.TextView;
 import com.example.cy.myapplication.R;
 import com.example.cy.myapplication.util.AESUtil;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 public class AesActivity extends AppCompatActivity {
 
 
+    @BindView(R.id.textView2)
+    TextView textView2;
     //密钥种子
     private String key = "0123456789ABCDEF";
-    @InjectView(R.id.textView2)
-    TextView textView2;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aes);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
+
 
         String pass = "cai888888中国中国，壮丽的山河";
 
