@@ -48,4 +48,5 @@ dependencies {
     compile 'com.android.support:support-v4:+'
     compile files('libs/glide-3.7.0.jar')
     compile files('libs/EasyAR.jar')
+    compile 'com.google.code.gson:gson:2.2.4'
 }
