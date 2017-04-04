@@ -9,6 +9,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,7 @@ public class ImagesActivity extends AppCompatActivity {
         while (!cursor.isAfterLast()) {
             String id = cursor.getString(iId);
             String path = cursor.getString(iPath);
+            Log.e("图片路径：",path+"");
             ImageModel imageModel = new ImageModel(id, path);
             list.add(imageModel);
             cursor.moveToNext();
@@ -103,16 +105,23 @@ public class ImagesActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(Holder holder, final int position) {
-            holder.imageView.setOnLongClickListener(new View.OnLongClickListener() {
+        public void onBindViewHolder(Holder holder, int position, List<Object> payloads) {
+            super.onBindViewHolder(holder, position, payloads);
+        }
+
+        @Override
+        public void onBindViewHolder(final Holder holder, int position) {
+            holder.imageView.setOnClickListener(new View.OnClickListener(){
                 @Override
-                public boolean onLongClick(View v) {
-                    adapter.imgs.remove(position);
-                    adapter.notifyItemRemoved(position);
-                    if (position != imgs.size()) { // 如果移除的是最后一个，忽略
-                        notifyItemRangeChanged(position, imgs.size());
+                public void onClick(View v) {
+                    int i = holder.getAdapterPosition();
+                    adapter.imgs.remove(i);
+                    adapter.notifyItemRemoved(i);
+                    if (holder.getLayoutPosition() != imgs.size()-1){ // 如果移除的是最后一个，忽略
+                        notifyItemRangeChanged(i, imgs.size()-i);
+
+                        Toast.makeText(ImagesActivity.this,i+"===="+imgs.size(),Toast.LENGTH_LONG).show();
                     }
-                    return false;
                 }
             });
             Glide.with(ImagesActivity.this).load(imgs.get(position).path).into(holder.imageView);
