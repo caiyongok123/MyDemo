@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.button, R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5, R.id.button6, R.id.button7, R.id.button8})
+    @OnClick({R.id.button, R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5, R.id.button6, R.id.button7, R.id.button8, R.id.button9})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button:
@@ -58,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.button8:
                 //手机旋转监听
                 startActivity(new Intent(this, SensorActivity.class));
+                break;
+            case R.id.button9:
+                //日历
+                startActivity(new Intent(this, CalendarActivity.class));
                 break;
         }
     }
