@@ -31,7 +31,7 @@ public class MyCalendarGridView extends RelativeLayout {
     Context context;
     Date firstDay;//这个月的第一天
     View view;
-    TextView tvYYMM;
+
     GridView gv;
     BaseAdapter adapter;
 
@@ -42,7 +42,7 @@ public class MyCalendarGridView extends RelativeLayout {
 
     public void setFirstDay(Date firstDay){
         this.firstDay = firstDay;
-        tvYYMM.setText(DateFormat.format("yyyy/MM",firstDay));
+
         initDates();
         Log.e("xxxxxx","xxxxxxxxxxxxxxxxxxxxx");
         adapter.notifyDataSetChanged();
@@ -63,7 +63,6 @@ public class MyCalendarGridView extends RelativeLayout {
 
     void initView() {
         view = LayoutInflater.from(context).inflate(R.layout.view_calendar, this);
-        tvYYMM = (TextView) view.findViewById(R.id.tv_yymm);
         gv = (GridView) view.findViewById(R.id.gv);
 
 

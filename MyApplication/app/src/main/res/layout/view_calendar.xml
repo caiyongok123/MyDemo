@@ -4,82 +4,8 @@
     android:layout_height="wrap_content">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:orientation="horizontal"
-        >
-        <ImageView
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:background="#f00"
-            />
-        <TextView
-            android:id="@+id/tv_yymm"
-            android:text="2010/09"
-            android:gravity="center"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="45dp" />
-        <ImageView
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:background="#f00"
-            />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_marginTop="45dp"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:orientation="horizontal">
-        <TextView
-            android:text="日"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="45dp" />
-        <TextView
-            android:text="一"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="45dp" />
-        <TextView
-            android:text="二"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="45dp" />
-        <TextView
-            android:text="三"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="45dp" />
-        <TextView
-            android:text="四"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="45dp" />
-        <TextView
-            android:text="五"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="45dp" />
-        <TextView
-            android:text="六"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="45dp" />
-    </LinearLayout>
-
     <GridView
-        android:id="@+id/gv" android:layout_marginTop="90dp"
+        android:id="@+id/gv"
         android:numColumns="7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

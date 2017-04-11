@@ -3,12 +3,14 @@ package com.example.cy.myapplication.widget.mycalendar;
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.cy.myapplication.R;
 
@@ -20,15 +22,18 @@ import butterknife.ButterKnife;
 /**
  * Created by joson on 2017/4/10.
  */
-public class MyCalendarView extends LinearLayout {
+public class MyCalendarView extends LinearLayout implements ViewPager.OnPageChangeListener {
     Context context;
     View view;
+    @Bind(R.id.tv_yymm)
+    TextView tvYYMM;
     @Bind(R.id.vp)
     ViewPager vp;
     MyAdapter adapter;
 
     Date selectDay = null;
-    int index = (new Date().getYear()-70)*12+new Date().getMonth();
+    int index = (new Date().getYear() - 70) * 12 + new Date().getMonth();
+
 
     public MyCalendarView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -46,20 +51,33 @@ public class MyCalendarView extends LinearLayout {
         view = LayoutInflater.from(context).inflate(R.layout.view_my_calendar, this);
         ButterKnife.bind(view);
 
-        /*itemViews[0] = LayoutInflater.from(context).inflate(R.layout.item_calendar_grid,null);
-        itemViews[1] = LayoutInflater.from(context).inflate(R.layout.item_calendar_grid,null);
-        itemViews[2] = LayoutInflater.from(context).inflate(R.layout.item_calendar_grid,null);
-        itemViews[3] = LayoutInflater.from(context).inflate(R.layout.item_calendar_grid,null);*/
+        vp.addOnPageChangeListener(this);
         adapter = new MyAdapter();
         vp.setAdapter(adapter);
         vp.setCurrentItem(index);
 
     }
 
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        Date date = new Date(0);
+        date.setYear(position == 0 ? 70 : 70 + position / 12);
+        date.setMonth(position % 12);
+        tvYYMM.setText(DateFormat.format("yyyy/MM",date));
+    }
 
-    //View[] itemViews= new View[4];
+    @Override
+    public void onPageSelected(int position) {
 
-    class MyAdapter extends PagerAdapter{
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+
+    class MyAdapter extends PagerAdapter {
 
         @Override
         public int getCount() {
@@ -78,21 +96,20 @@ public class MyCalendarView extends LinearLayout {
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            View itemView = LayoutInflater.from(context).inflate(R.layout.item_calendar_grid,null);
-            /*for (int i = 0 ; i < itemViews.length; i++){
-                if (itemViews[i].getParent()==null){
-                    itemView = itemViews[i];
-                    break;
-                }
-            }*/
+            View itemView = LayoutInflater.from(context).inflate(R.layout.item_calendar_grid, null);
+
             container.addView(itemView);
             MyCalendarGridView myCalendarGridView = (MyCalendarGridView) itemView.findViewById(R.id.mcgv);
             Date date = new Date(0);
-            date.setYear(position==0? 70:70+position/12);
-            date.setMonth(position%12);
+            date.setYear(position == 0 ? 70 : 70 + position / 12);
+            date.setMonth(position % 12);
             myCalendarGridView.setFirstDay(date);
-            Log.e("xxxxxxxxxxxxxxxx",date.toLocaleString());
+            Log.e("xxxxxxxxxxxxxxxx", date.toLocaleString());
+
             return itemView;
         }
     }
+
+
+
 }
