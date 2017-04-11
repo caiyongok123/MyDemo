@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -85,17 +86,17 @@ public class MyCalendarGridView extends RelativeLayout {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 Date date = dates.get(position);
-
-                TextView tv = new TextView(context);
+                View itemView = LayoutInflater.from(context).inflate(R.layout.item_text,null);
+                TextView tv = (TextView) itemView.findViewById(R.id.tv_item);
                 tv.setText(date.getDate()+"");
-                tv.setLayoutParams(new ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT,view.getWidth()/7));
+                tv.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,view.getWidth()/7));
                 tv.setGravity(CENTER);
                 if (date.getMonth() == firstDay.getMonth()){
                     tv.setTextColor(Color.parseColor("#000000"));
                 }else {
                     tv.setTextColor(Color.parseColor("#999999"));
                 }
-                return tv;
+                return itemView;
             }
         };
 
