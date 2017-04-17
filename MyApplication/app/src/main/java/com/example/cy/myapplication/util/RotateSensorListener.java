@@ -61,27 +61,27 @@ public abstract class RotateSensorListener {
     }
 
     private void qianfan(float value) {
-        if (Math.abs(value) <= 40) {
+        if (Math.abs(value) < 45) {
             if (qianfanTag == 3) {
                 qianfanNum++;
                 onQianfan(qianfanNum);
             }
             qianfanTag = 0;
 
-        } else if (value <= 130 && value >= 50) {
+        } else if (value < 135 && value > 45) {
             if (qianfanTag == 0) {
                 qianfanTag = 1;
             }else if (qianfanTag!=1){
                 qianfanTag = 0;
             }
 
-        } else if (Math.abs(value) >= 140) {
+        } else if (Math.abs(value) > 135) {
             if (qianfanTag == 1) {
                 qianfanTag = 2;
             }else  if (qianfanTag!=2){
                 qianfanTag = 0;
             }
-        } else if (value <= -50 && value >= -130) {
+        } else if (value <= -45 && value >= -135) {
             if (qianfanTag == 2) {
                 qianfanTag = 3;
             }else  if (qianfanTag!=3){
@@ -93,27 +93,27 @@ public abstract class RotateSensorListener {
     }
 
     private void houfan(float value) {
-        if (Math.abs(value) <= 40) {
+        if (Math.abs(value) <= 45) {
             if (houfanTag == 3) {
                 houfanNum++;
                 onHoufan(houfanNum);
             }
             houfanTag = 0;
 
-        } else if (value <= -50 && value >= -130) {
+        } else if (value <= -45 && value >= -135) {
             if (houfanTag == 0) {
                 houfanTag = 1;
             }else if (houfanTag!=1){
                 houfanTag = 0;
             }
 
-        } else if (Math.abs(value) >= 140) {
+        } else if (Math.abs(value) >= 135) {
             if (houfanTag == 1) {
                 houfanTag = 2;
             }else  if (houfanTag!=2){
                 houfanTag = 0;
             }
-        } else if (value >= 50 && value <= 130) {
+        } else if (value >= 45 && value <= 135) {
             if (houfanTag == 2) {
                 houfanTag = 3;
             }else  if (houfanTag!=3){
