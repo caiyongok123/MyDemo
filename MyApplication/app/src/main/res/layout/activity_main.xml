@@ -85,6 +85,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
+        <Button
+            android:id="@+id/button10"
+            android:textAllCaps="false"
+            android:text="ViewPager显示一组网络图片"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
 
     </LinearLayout>
 

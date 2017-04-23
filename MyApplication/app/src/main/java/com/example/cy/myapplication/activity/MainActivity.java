@@ -7,6 +7,8 @@ import android.view.View;
 
 import com.example.cy.myapplication.R;
 
+import java.util.ArrayList;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -20,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.button, R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5, R.id.button6, R.id.button7, R.id.button8, R.id.button9})
+    @OnClick({R.id.button, R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5, R.id.button6, R.id.button7, R.id.button8, R.id.button9, R.id.button10})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button:
@@ -62,6 +64,20 @@ public class MainActivity extends AppCompatActivity {
             case R.id.button9:
                 //日历
                 startActivity(new Intent(this, CalendarActivity.class));
+                break;
+            case R.id.button10:
+                //ViewPager显示一组网络图片
+                ArrayList<String> urls = new ArrayList();
+                urls.add("http://image.tianjimedia.com/uploadImages/2014/287/00/WU13N728772L.jpg");
+                urls.add("http://bcs.91.com/rbpiczy/Wallpaper/2014/11/12/043999654e824d859aa7ce3e6dee0eed-1.jpg");
+                urls.add("http://img5.duitang.com/uploads/item/201503/07/20150307192348_uCUNB.jpeg");
+                urls.add("http://img5.duitang.com/uploads/item/201508/21/20150821110613_xsSM5.jpeg");
+                urls.add("http://imgstore.cdn.sogou.com/app/a/100540002/822878.jpg");
+                urls.add("http://bizhi.zhuoku.com/2013/04/14/zhuoku/zhuoku109.jpg");
+                startActivity(
+                        new Intent(this, NetImagesActivity.class)
+                        .putExtra("urls",urls)
+                );
                 break;
         }
     }

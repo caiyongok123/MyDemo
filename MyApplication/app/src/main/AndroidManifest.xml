@@ -34,7 +34,8 @@
         <activity android:name=".activity.ImagesActivity" />
         <activity android:name=".activity.SystemDownLoadActivity" />
         <activity android:name=".activity.SensorActivity" />
-        <activity android:name=".activity.CalendarActivity"></activity>
+        <activity android:name=".activity.CalendarActivity" />
+        <activity android:name=".activity.NetImagesActivity"></activity>
     </application>
 
 </manifest>
