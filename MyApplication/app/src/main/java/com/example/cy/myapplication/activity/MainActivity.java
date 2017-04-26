@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.cy.myapplication.R;
+import com.leon.vuforia.ImageTargets;
 
 import java.util.ArrayList;
 
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.button, R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5, R.id.button6, R.id.button7, R.id.button8, R.id.button9, R.id.button10})
+    @OnClick({R.id.button, R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5, R.id.button6, R.id.button7, R.id.button8, R.id.button9, R.id.button10, R.id.button11})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button:
@@ -79,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
                         .putExtra("urls",urls)
                 );
                 break;
+            case R.id.button11:
+                //AR
+                startActivity(new Intent().setClassName(this.getPackageName(),"com.leon.vuforia.ImageTargets"));
+                 break;
         }
     }
 

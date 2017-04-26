@@ -5,12 +5,23 @@ android {
     buildToolsVersion '25.0.2'
     defaultConfig {
         applicationId "com.example.cy.myapplication"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters "armeabi-v7a"
+            ldLibs "log"
+        }
     }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
     //签名配置
     signingConfigs {
         debug {
@@ -47,6 +58,6 @@ dependencies {
     compile 'com.facebook.fresco:animated-gif:1.1.0'
     compile 'com.android.support:support-v4:+'
     compile files('libs/glide-3.7.0.jar')
-    compile files('libs/EasyAR.jar')
     compile 'com.google.code.gson:gson:2.2.4'
+    compile(name:'vuforia', ext:'aar')
 }
