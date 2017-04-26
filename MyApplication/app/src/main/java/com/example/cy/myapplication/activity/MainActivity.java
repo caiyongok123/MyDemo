@@ -23,7 +23,10 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.button, R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5, R.id.button6, R.id.button7, R.id.button8, R.id.button9, R.id.button10, R.id.button11})
+    @OnClick({R.id.button, R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5,
+            R.id.button6, R.id.button7, R.id.button8, R.id.button9, R.id.button10, R.id.button11,
+            R.id.button12
+    })
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button:
@@ -84,6 +87,9 @@ public class MainActivity extends AppCompatActivity {
                 //AR
                 startActivity(new Intent().setClassName(this.getPackageName(),"com.leon.vuforia.ImageTargets"));
                  break;
+            case R.id.button12://GreenDao数据库操作
+                startActivity(new Intent(MainActivity.this,GreenDaoActivity.class));
+                break;
         }
     }
 

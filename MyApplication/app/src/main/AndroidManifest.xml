@@ -4,10 +4,11 @@
     package="com.example.cy.myapplication">
 
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission
@@ -38,12 +39,12 @@
         <activity android:name=".activity.SystemDownLoadActivity" />
         <activity android:name=".activity.SensorActivity" />
         <activity android:name=".activity.CalendarActivity" />
-        <activity android:name=".activity.NetImagesActivity"></activity>
+        <activity android:name=".activity.NetImagesActivity" />
         <activity
             android:name="com.leon.vuforia.ImageTargets"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
-            android:theme="@style/SampleAppsTheme">
-        </activity>
+            android:theme="@style/SampleAppsTheme"></activity>
+        <activity android:name=".activity.GreenDaoActivity"></activity>
     </application>
 
 </manifest>

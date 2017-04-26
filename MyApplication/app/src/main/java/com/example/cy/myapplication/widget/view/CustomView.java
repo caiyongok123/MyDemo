@@ -31,7 +31,7 @@ public class CustomView extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        Toast.makeText(context, changed + "***" + l + "***" + t + "***" + r + "***" + b, 1).show();
+        Toast.makeText(context,"自定义组件尺寸："+ changed + "***" + l + "***" + t + "***" + r + "***" + b, Toast.LENGTH_LONG).show();
         Log.e("xxxxxxxxxxxxxxxxxxxx",changed + "***" + l + "***" + t + "***" + r + "***" + b);
     }
 
