@@ -43,6 +43,7 @@ public class GreenDaoActivity extends AppCompatActivity {
                     user.setId(new Long("121"));
                     user.setUsername(""+System.currentTimeMillis());
                     user.setNickname("王大王");
+
                     long l = MyApplication.myApplication.daoSession.getUserDao().insert(user);
                     Toast.makeText(this,""+l,Toast.LENGTH_LONG).show();
                 }catch (Exception e){

@@ -45,7 +45,7 @@ android {
     }
     greendao{
         //表示greendao数据库版本号
-        schemaVersion 1
+        schemaVersion 4
         //表示greenDAO生成的DAOMaster和DaoSession的位置
         targetGenDir 'src/main/java'
     }

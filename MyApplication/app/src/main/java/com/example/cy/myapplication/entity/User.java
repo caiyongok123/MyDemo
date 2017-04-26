@@ -25,6 +25,8 @@ public class User {
     private String username;
     @Property(nameInDb = "NICKNAME")
     private String nickname;
+    @Property(nameInDb = "ADDRESS")
+    private String address;
     public String getNickname() {
         return this.nickname;
     }
@@ -43,11 +45,18 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
-    @Generated(hash = 523935516)
-    public User(Long id, String username, String nickname) {
+    public String getAddress() {
+        return this.address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    @Generated(hash = 854598961)
+    public User(Long id, String username, String nickname, String address) {
         this.id = id;
         this.username = username;
         this.nickname = nickname;
+        this.address = address;
     }
     @Generated(hash = 586692638)
     public User() {
