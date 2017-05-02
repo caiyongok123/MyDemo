@@ -1,28 +1,29 @@
 package com.example.cy.myapplication.activity;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.content.Context;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Environment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.Target;
 import com.example.cy.myapplication.R;
-import com.facebook.binaryresource.FileBinaryResource;
-import com.facebook.cache.common.SimpleCacheKey;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 
 /**
@@ -60,18 +61,10 @@ public class NetImagesActivity extends AppCompatActivity {
             @Override
             public Object instantiateItem(ViewGroup container, final int position) {
                 View item = LayoutInflater.from(NetImagesActivity.this).inflate(R.layout.item_net_image, null);
-                final SimpleDraweeView simpleDraweeView = (SimpleDraweeView) item.findViewById(R.id.sdv);
-                simpleDraweeView.setImageURI(Uri.parse(urls.get(position)));
-                findViewById(R.id.btn_save).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (Uri.parse(urls.get(position)) != null) {
-                            saveBitMap(returnBitmap(Uri.parse(urls.get(position))));
-                        } else {
-                            Toast.makeText(NetImagesActivity.this, "请稍后……", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
+
+                ImageView ivItem = (ImageView) item.findViewById(R.id.iv_item);
+                final String url = urls.get(position);
+                Glide.with(NetImagesActivity.this).load(url).into(ivItem);
                 container.addView(item);
                 return item;
             }
@@ -80,35 +73,76 @@ public class NetImagesActivity extends AppCompatActivity {
 
         urls = (ArrayList<String>) getIntent().getSerializableExtra("urls");
         adapter.notifyDataSetChanged();
+
+        findViewById(R.id.btn_save).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Uri.parse(urls.get(vp.getCurrentItem())) != null) {
+                    new GetImageCacheAsyncTask(NetImagesActivity.this).execute(urls.get(vp.getCurrentItem()));
+                } else {
+                    Toast.makeText(NetImagesActivity.this, "请稍后……", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
-    void saveBitMap(Bitmap bitmap) {
+    void saveBitMapAsFile(File file) {
         String imageName = System.currentTimeMillis() + ".png";
         File f = new File(SavePath, imageName);
         if (f.exists()) {
             f.delete();
         }
 
+        FileChannel in = null;
+        FileChannel out = null;
+        FileInputStream inStream = null;
+        FileOutputStream outStream = null;
         try {
-            FileOutputStream out = new FileOutputStream(f);
-            bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
-            out.flush();
-            out.close();
-            Toast.makeText(NetImagesActivity.this,"已保存为:"+SavePath+imageName,Toast.LENGTH_LONG).show();
-        } catch (Exception e) {
-            Toast.makeText(NetImagesActivity.this,"图片保存失败",Toast.LENGTH_LONG).show();
+            inStream = new FileInputStream(file);
+            outStream = new FileOutputStream(f);
+            in = inStream.getChannel();
+            out = outStream.getChannel();
+            in.transferTo(0, in.size(), out);
+        } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {inStream.close();}catch (Exception e){}
+            try {inStream.close();}catch (Exception e){}
+            try {outStream.close();}catch (Exception e){}
+            try {out.close();}catch (Exception e){}
         }
+        Toast.makeText(NetImagesActivity.this, "已保存为:" + SavePath + imageName, Toast.LENGTH_LONG).show();
 
     }
 
-    private Bitmap returnBitmap(Uri uri) {
+    private class GetImageCacheAsyncTask extends AsyncTask<String, Void, File> {
+        private final Context context;
 
-        Bitmap bitmap = null;
-        FileBinaryResource resource = (FileBinaryResource) Fresco.getImagePipelineFactory().getMainFileCache().getResource(new SimpleCacheKey(uri.toString()));
-        File file = resource.getFile();
-        bitmap = BitmapFactory.decodeFile(file.getPath());
-        return bitmap;
+        public GetImageCacheAsyncTask(Context context) {
+            this.context = context;
+        }
 
+        @Override
+        protected File doInBackground(String... params) {
+
+            String imgUrl = params[0];
+            try {
+                return Glide.with(context)
+                        .load(imgUrl)
+                        .downloadOnly(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+                        .get();
+            } catch (Exception ex) {
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(File result) {
+            if (result == null) {
+                Toast.makeText(NetImagesActivity.this, "请稍后……", Toast.LENGTH_LONG).show();
+                return;
+            }
+            saveBitMapAsFile(result);
+        }
     }
 }

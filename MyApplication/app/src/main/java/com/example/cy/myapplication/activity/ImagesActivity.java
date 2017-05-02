@@ -111,9 +111,9 @@ public class ImagesActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final Holder holder, int position) {
-            holder.imageView.setOnClickListener(new View.OnClickListener(){
+            holder.imageView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
-                public void onClick(View v) {
+                public boolean onLongClick(View v) {
                     int i = holder.getAdapterPosition();
                     adapter.imgs.remove(i);
                     adapter.notifyItemRemoved(i);
@@ -122,6 +122,7 @@ public class ImagesActivity extends AppCompatActivity {
 
                         Toast.makeText(ImagesActivity.this,i+"===="+imgs.size(),Toast.LENGTH_LONG).show();
                     }
+                    return false;
                 }
             });
             Glide.with(ImagesActivity.this).load(imgs.get(position).path).into(holder.imageView);
