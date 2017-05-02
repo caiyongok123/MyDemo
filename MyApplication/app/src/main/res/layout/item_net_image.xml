@@ -4,8 +4,9 @@
     android:layout_height="match_parent">
 
 
-    <ImageView
+    <com.example.cy.myapplication.widget.view.MyZoomImageView
         android:id="@+id/iv_item"
+        android:src="@drawable/icon_sel"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
