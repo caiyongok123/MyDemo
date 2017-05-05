@@ -6,6 +6,7 @@
 
     <data>
         <variable name="ppa" type="com.example.cy.myapplication.activity.MvvmActivity.Entity"/>
+        <variable name="view" type="android.view.View"/>
     </data>
 
     <LinearLayout
@@ -14,7 +15,8 @@
         android:orientation="vertical">
         <TextView
             android:id="@+id/tv"
-            android:text="@{ppa.name}"
+            android:visibility="@{ppa.isAdult? view.VISIBLE:view.GONE}"
+            android:text="@{ppa.name ?? (String)@string/app_name}"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
     </LinearLayout>
