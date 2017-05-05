@@ -43,8 +43,9 @@
         <activity
             android:name="com.leon.vuforia.ImageTargets"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
-            android:theme="@style/SampleAppsTheme"></activity>
-        <activity android:name=".activity.GreenDaoActivity"></activity>
+            android:theme="@style/SampleAppsTheme" />
+        <activity android:name=".activity.GreenDaoActivity" />
+        <activity android:name=".activity.MvvmActivity"></activity>
     </application>
 
 </manifest>

@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick({R.id.button, R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5,
             R.id.button6, R.id.button7, R.id.button8, R.id.button9, R.id.button10, R.id.button11,
-            R.id.button12
+            R.id.button12,R.id.button13
     })
     public void onClick(View view) {
         switch (view.getId()) {
@@ -90,6 +90,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.button12://GreenDao数据库操作
                 startActivity(new Intent(MainActivity.this,GreenDaoActivity.class));
                 break;
+            case R.id.button13://mvvm模式
+                startActivity(new Intent(MainActivity.this,MvvmActivity.class));
+                break;
+
         }
     }
 

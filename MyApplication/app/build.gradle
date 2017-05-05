@@ -43,16 +43,20 @@ android {
         }
 
     }
-    greendao{
+    greendao {
         //表示greendao数据库版本号
         schemaVersion 4
         //表示greenDAO生成的DAOMaster和DaoSession的位置
         targetGenDir 'src/main/java'
     }
+
+    dataBinding {
+        enabled true
+    }
 }
 
 
-dependencies{
+dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -66,7 +70,7 @@ dependencies{
     compile 'com.facebook.fresco:animated-gif:1.1.0'
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.google.code.gson:gson:2.2.4'
-    compile 'com.android.support.constraint:constraint-layout:+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'org.greenrobot:greendao:3.1.0'
     testCompile 'junit:junit:4.12'
 }

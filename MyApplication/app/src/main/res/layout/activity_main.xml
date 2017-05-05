@@ -116,6 +116,14 @@
             android:layout_height="wrap_content"
             />
 
+        <Button
+            android:id="@+id/button13"
+            android:textAllCaps="false"
+            android:text="mvvm模式"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
     </LinearLayout>
 
 </ScrollView>
