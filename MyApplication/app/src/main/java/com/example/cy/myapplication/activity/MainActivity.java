@@ -1,100 +1,115 @@
 package com.example.cy.myapplication.activity;
 
 import android.content.Intent;
+import android.databinding.BaseObservable;
+import android.databinding.BindingAdapter;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.cy.myapplication.R;
-import com.leon.vuforia.ImageTargets;
+import com.example.cy.myapplication.databinding.ActivityMainBinding;
+import com.example.cy.myapplication.databinding.ItemText50dpBinding;
 
 import java.util.ArrayList;
-
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static class ViewMode{
+        public MyAdapter adapter = new MyAdapter();
+        @BindingAdapter("setAdapter")
+        public static void setAdapter(ListView lv,ViewMode mode){
+
+
+            ArrayList<String> urls = new ArrayList();
+            urls.addAll(Arrays.asList(MyApplication.myApplication.getResources().getStringArray(R.array.imgUrls)));
+
+            Collections.addAll(mode.adapter.dataList, new ItemMode("自定义TabLayout",TabLayoutTestActivity.class),
+                    new ItemMode("协调布局的简单使用",CoordinatorLayoutTestActivity.class),
+                    new ItemMode("用Fresco和Glide播放Gif图",GifActivity.class),
+                    new ItemMode("Fragment转场动画",FragmentAnimActivity.class),
+                    new ItemMode("AES加密解密",AesActivity.class),
+                    new ItemMode("设置电源管理，使后台线程不自动休眠",ThreadActivity.class),
+                    new ItemMode("展示系统相册所有图片",ImagesActivity.class),
+                    new ItemMode("系统下载器下载安装apk",SystemDownLoadActivity.class),
+                    new ItemMode("手机旋转监听",SensorActivity.class),
+                    new ItemMode("日历",CalendarActivity.class),
+                    new ItemMode("ViewPager显示一组网络图片",new Intent(MyApplication.myApplication, NetImagesActivity.class)
+                            .putExtra("urls",urls)),
+                    new ItemMode("AR",new Intent().setClassName(MyApplication.myApplication.getPackageName(),"com.leon.vuforia.ImageTargets")),
+                    new ItemMode("GreenDao数据库操作",GreenDaoActivity.class),
+                    new ItemMode("mvvm模式",MvvmActivity.class));
+
+            lv.setAdapter(mode.adapter);
+        }
+    }
+
+    public static class ItemMode extends BaseObservable{
+
+        public String title;
+        public Intent intent;
+
+
+        @BindingAdapter("setOnClick")
+        public static void setOnClick(final TextView tv, final ItemMode item){
+            tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    tv.getContext().startActivity(item.intent);
+                }
+            });
+        }
+
+        public ItemMode(String title, Intent intent) {
+            this.title = title;
+            this.intent = intent;
+        }
+
+        public ItemMode(String title, Class mClass) {
+            this.title = title;
+            this.intent = new Intent(MyApplication.myApplication,mClass);
+        }
+    }
+
+    static class MyAdapter extends BaseAdapter{
+
+        public ArrayList<ItemMode> dataList = new ArrayList<>();
+
+        @Override
+        public int getCount() {
+            return dataList.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return position;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ItemText50dpBinding ib = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),R.layout.item_text_50dp,parent,false);
+            ib.setItemMode(dataList.get(position));
+            return ib.getRoot();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        ActivityMainBinding amb = DataBindingUtil.setContentView(this,R.layout.activity_main);
+        amb.setViewMode(new ViewMode());
     }
-
-    @OnClick({R.id.button, R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5,
-            R.id.button6, R.id.button7, R.id.button8, R.id.button9, R.id.button10, R.id.button11,
-            R.id.button12,R.id.button13
-    })
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.button:
-                //自定义TabLayout
-                startActivity(new Intent(this, TabLayoutTestActivity.class));
-                break;
-            case R.id.button1:
-                //协调布局的简单使用
-                startActivity(new Intent(this, CoordinatorLayoutTestActivity.class));
-                break;
-            case R.id.button2:
-                //用Fresco和Glide播放Gif图
-                startActivity(new Intent(this, GifActivity.class));
-                break;
-            case R.id.button3:
-                //Fragment转场动画
-                startActivity(new Intent(this, FragmentAnimActivity.class));
-                break;
-            case R.id.button4:
-                //AES加密解密
-                startActivity(new Intent(this, AesActivity.class));
-                break;
-            case R.id.button5:
-                //设置电源管理，使后台线程不自动休眠
-                startActivity(new Intent(this, ThreadActivity.class));
-                break;
-            case R.id.button6:
-                //展示系统相册所有图片
-                startActivity(new Intent(this, ImagesActivity.class));
-                break;
-            case R.id.button7:
-                //系统下载器下载安装apk
-                startActivity(new Intent(this, SystemDownLoadActivity.class));
-                break;
-            case R.id.button8:
-                //手机旋转监听
-                startActivity(new Intent(this, SensorActivity.class));
-                break;
-            case R.id.button9:
-                //日历
-                startActivity(new Intent(this, CalendarActivity.class));
-                break;
-            case R.id.button10:
-                //ViewPager显示一组网络图片
-                ArrayList<String> urls = new ArrayList();
-                urls.add("http://image.tianjimedia.com/uploadImages/2014/287/00/WU13N728772L.jpg");
-                urls.add("http://bcs.91.com/rbpiczy/Wallpaper/2014/11/12/043999654e824d859aa7ce3e6dee0eed-1.jpg");
-                urls.add("http://img5.duitang.com/uploads/item/201503/07/20150307192348_uCUNB.jpeg");
-                urls.add("http://img5.duitang.com/uploads/item/201508/21/20150821110613_xsSM5.jpeg");
-                urls.add("http://imgstore.cdn.sogou.com/app/a/100540002/822878.jpg");
-                urls.add("http://bizhi.zhuoku.com/2013/04/14/zhuoku/zhuoku109.jpg");
-                startActivity(
-                        new Intent(this, NetImagesActivity.class)
-                        .putExtra("urls",urls)
-                );
-                break;
-            case R.id.button11:
-                //AR
-                startActivity(new Intent().setClassName(this.getPackageName(),"com.leon.vuforia.ImageTargets"));
-                 break;
-            case R.id.button12://GreenDao数据库操作
-                startActivity(new Intent(MainActivity.this,GreenDaoActivity.class));
-                break;
-            case R.id.button13://mvvm模式
-                startActivity(new Intent(MainActivity.this,MvvmActivity.class));
-                break;
-
-        }
-    }
-
 }

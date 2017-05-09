@@ -93,7 +93,7 @@ public class MvvmActivity extends AppCompatActivity {
             this.text = text;
         }
 
-        @BindingAdapter("aaaaa:ccccc")
+        @BindingAdapter("ccccc")
         public static void setText(TextView tv, Item item) {
             tv.setText(item.text+"哈哈哈哈");
         }
