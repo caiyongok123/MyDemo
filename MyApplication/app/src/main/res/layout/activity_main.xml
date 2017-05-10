@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewMode"
-            type="com.example.cy.myapplication.activity.MainActivity.ViewMode"/>
+            type="com.example.cy.myapplication.MainActivity.ViewMode"/>
     </data>
     <ListView
         android:id="@+id/lv"

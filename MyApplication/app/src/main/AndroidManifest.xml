@@ -22,7 +22,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,7 +45,9 @@
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
             android:theme="@style/SampleAppsTheme" />
         <activity android:name=".activity.GreenDaoActivity" />
-        <activity android:name=".activity.MvvmActivity"></activity>
+        <activity android:name=".activity.MvvmActivity" />
+        <activity android:name=".activity.VitamioBundleActivity" />
+        <activity android:name=".activity.JiecaoActivity"></activity>
     </application>
 
 </manifest>
