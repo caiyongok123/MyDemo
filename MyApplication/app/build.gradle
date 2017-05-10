@@ -73,4 +73,5 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'org.greenrobot:greendao:3.1.0'
     testCompile 'junit:junit:4.12'
+    compile project(':vitamio')
 }
