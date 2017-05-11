@@ -19,6 +19,7 @@ import com.example.cy.myapplication.activity.CoordinatorLayoutTestActivity;
 import com.example.cy.myapplication.activity.FragmentAnimActivity;
 import com.example.cy.myapplication.activity.GifActivity;
 import com.example.cy.myapplication.activity.GreenDaoActivity;
+import com.example.cy.myapplication.activity.IjkPlayerActivity;
 import com.example.cy.myapplication.activity.ImagesActivity;
 import com.example.cy.myapplication.activity.JiecaoActivity;
 import com.example.cy.myapplication.activity.MvvmActivity;
@@ -64,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("GreenDao数据库操作", GreenDaoActivity.class),
                     new ItemMode("mvvm模式", MvvmActivity.class),
                     new ItemMode("VitamioBundle框架播放视频", VitamioBundleActivity.class),
-                    new ItemMode("节操框架播放视频", JiecaoActivity.class)
+                    new ItemMode("节操框架播放视频", JiecaoActivity.class),
+                    new ItemMode("B站IJK播放器播放视频", IjkPlayerActivity.class)
             );
 
             // TODO: 2017/5/10 节操播放器的使用，Vitamio播放器的使用，

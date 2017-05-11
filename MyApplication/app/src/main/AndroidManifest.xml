@@ -47,14 +47,14 @@
         <activity android:name=".activity.GreenDaoActivity" />
         <activity android:name=".activity.MvvmActivity" />
         <activity android:name=".activity.VitamioBundleActivity" />
-        <activity android:name=".activity.JiecaoActivity"></activity>
-
+        <activity android:name=".activity.JiecaoActivity" />
         <activity
             android:name="io.vov.vitamio.activity.InitActivity"
             android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
             android:launchMode="singleTop"
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".activity.IjkPlayerActivity"></activity>
     </application>
 
 </manifest>

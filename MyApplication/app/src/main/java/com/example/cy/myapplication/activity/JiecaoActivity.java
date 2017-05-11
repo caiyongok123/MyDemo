@@ -21,11 +21,11 @@ public class JiecaoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this,R.layout.activity_jiecao);
-        binding.jc.setUp("http://videohy.tc.qq.com/video.dispatch.tc.qq.com/w0013ncil94.mp4?vkey=0B00F050FFAC8EE04CD8CF67DECE2D0AC7A679F05ED7103314B27052ED6678EA4A2902E68A5F0526E4F0FC24BA784EEDC4FAE09197E3ACDC8D6CB07FBE169ED3AE2979BAF303454664DAF3CCFA15D957DE9C7B88961CC5C3FDFA90009EE4D80EF543B59EBBFF6249B05F083946164B10&ocid=300556204","完美的一天");
+        binding.jc.setUp("http://183.60.145.23/youku/67788EDEBB24081076C5BB3F52/03000201004BDD351CB7B40208AA6C3BE39B90-2391-E335-7C9B-0BAC9FFECD5F.flv?sid=049447051517387bb1ae2_00&sign=f9c14030fde56b9b2adcc0e2bd0ecd25&ctype=87","完美的一天");
         binding.jc.ivThumb.setImageResource(R.drawable.bg);
-        binding.jc1.setUp("http://video.dispatch.tc.qq.com/g03420wgjgq.mp4?vkey=80618A9435D543BA411F0CD3043468AEF1DD712D7DC4152B5A63FF973980FF9815F65E11DB6759AA5E23B1DB4AE2ABC4DDE3FFBAC3E07A8BEC35BD44269B069EDBBED59A8EDFEBBD7BBA676FA330CBB427AF491D2DF54AF5E492FE0793F0389B37F345CEB85F5D2C9595596F8653F69A","白鸽");
+        binding.jc1.setUp("https://d11.baidupcs.com/file/0fb4e901725b36900aa9f2a87af0a98d?bkt=p3-14000fb4e901725b36900aa9f2a87af0a98d65dc82980000043cfdba&xcode=5421a43b08853d1c4466c3c05771c3039c775c9e7b026fd90b2977702d3e6764&fid=3595802637-250528-1125354830873779&time=1494470197&sign=FDTAXGERLBHS-DCb740ccc5511e5e8fedcff06b081203-WaqlnNCFvlMuJVGZk68IzuYuJUw%3D&to=d11&size=71105978&sta_dx=71105978&sta_cs=2437&sta_ft=avi&sta_ct=7&sta_mt=6&fm2=MH,Yangquan,Netizen-anywhere,,guangdong,ct&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=14000fb4e901725b36900aa9f2a87af0a98d65dc82980000043cfdba&sl=83034191&expires=8h&rt=pr&r=300516065&mlogid=3025320480629515175&vuk=3595802637&vbdid=2045980691&fin=03_%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F.avi&fn=03_%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F.avi&rtype=1&iv=0&dp-logid=3025320480629515175&dp-callid=0.1.1&hps=1&csl=300&csign=fz%2BSLm4%2BaP2XPAUDRZQqk%2BvpDwA%3D&by=themis","白鸽");
         binding.jc1.ivThumb.setImageResource(R.drawable.bg);
-        binding.jc2.setUp("http://videohy.tc.qq.com/video.dispatch.tc.qq.com/q00139kfw54.mp4?vkey=D801C4F1880302260775583AB70443C0CFAD4311C7780B46594BBDDBC3CF986A7534BBD336E3F5FB17F009BE8305C0B1E72237285E577AB458E10B6055DDA1B346BD43DC12CF753433A893D8D342D24D3DCB7F6264098156C123D3FC9B59D4BA4F1A27AD12607FF905DFE27BC5578916&ocid=349446060","白玫瑰");
+        binding.jc2.setUp("http://125.71.238.129:7086/Files/MVideo/20160118nx.mp4","白玫瑰");
         binding.jc2.ivThumb.setImageResource(R.drawable.bg);
     }
 
