@@ -12,10 +12,10 @@
         android:orientation="vertical"
         >
 
-        <tv.danmaku.ijk.media.player.IjkMediaPlayer
+        <!--<com.hx.ijkplayer_demo.widget.media.IjkVideoView
             android:id="@+id/vv"
             android:layout_width="match_parent"
-            android:layout_height="200dp" />
+            android:layout_height="200dp" />-->
 
     </LinearLayout>
 
