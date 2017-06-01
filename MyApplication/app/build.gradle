@@ -5,9 +5,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion '25.0.2'
     defaultConfig {
-        jackOptions {
-            enabled=true
-        }
+
         applicationId "com.example.cy.myapplication"
         minSdkVersion 21
         targetSdkVersion 22
@@ -56,12 +54,6 @@ android {
     dataBinding {
         enabled true
     }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
 }
 
 

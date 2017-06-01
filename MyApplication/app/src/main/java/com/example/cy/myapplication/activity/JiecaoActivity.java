@@ -31,7 +31,10 @@ public class JiecaoActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        JCVideoPlayer.releaseAllVideos();
+        try {
+            JCVideoPlayer.releaseAllVideos();
+        }catch (Exception e){}
+
         super.onPause();
     }
 }
