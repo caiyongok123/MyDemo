@@ -11,6 +11,7 @@
         android:layout_height="200dp">
         <ImageView
             android:id="@+id/iv_anim" android:layout_centerHorizontal="true"
+            android:src="@mipmap/tx"
             android:layout_width="45dp"
             android:layout_height="45dp" />
     </RelativeLayout>

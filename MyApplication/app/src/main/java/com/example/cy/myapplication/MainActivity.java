@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.cy.myapplication.activity.AesActivity;
+import com.example.cy.myapplication.activity.AnimalUpAndDownActivity;
 import com.example.cy.myapplication.activity.CalendarActivity;
 import com.example.cy.myapplication.activity.CoordinatorLayoutTestActivity;
 import com.example.cy.myapplication.activity.FragmentAnimActivity;
@@ -64,10 +65,10 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("GreenDao数据库操作", GreenDaoActivity.class),
                     new ItemMode("mvvm模式", MvvmActivity.class),
                     new ItemMode("VitamioBundle框架播放视频", VitamioBundleActivity.class),
-                    new ItemMode("节操框架播放视频", JiecaoActivity.class)
+                    new ItemMode("节操框架播放视频", JiecaoActivity.class),
+                    new ItemMode("图片上下回弹跳的动画", AnimalUpAndDownActivity.class)
             );
 
-            // TODO: 2017/5/10 节操播放器的使用，Vitamio播放器的使用，
 
 
             lv.setAdapter(mode.adapter);
