@@ -22,6 +22,7 @@ import com.example.cy.myapplication.activity.GifActivity;
 import com.example.cy.myapplication.activity.GreenDaoActivity;
 import com.example.cy.myapplication.activity.ImagesActivity;
 import com.example.cy.myapplication.activity.JiecaoActivity;
+import com.example.cy.myapplication.activity.MPAndroidChartActivity;
 import com.example.cy.myapplication.activity.MvvmActivity;
 import com.example.cy.myapplication.activity.MyApplication;
 import com.example.cy.myapplication.activity.NetImagesActivity;
@@ -66,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("mvvm模式", MvvmActivity.class),
                     new ItemMode("VitamioBundle框架播放视频", VitamioBundleActivity.class),
                     new ItemMode("节操框架播放视频", JiecaoActivity.class),
-                    new ItemMode("图片上下回弹跳的动画", AnimalUpAndDownActivity.class)
+                    new ItemMode("图片上下回弹跳的动画", AnimalUpAndDownActivity.class),
+                    new ItemMode("MPAndroidChart图表", MPAndroidChartActivity.class)
             );
 
 
