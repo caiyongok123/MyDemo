@@ -54,6 +54,7 @@
             android:launchMode="singleTop"
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".activity.AnimalUpAndDownActivity"></activity>
     </application>
 
 </manifest>
