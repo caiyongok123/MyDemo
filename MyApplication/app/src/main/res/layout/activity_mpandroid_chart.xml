@@ -5,9 +5,10 @@
     android:orientation="vertical"
     >
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/chart"
+    <Button
+        android:text="折线图"
+        android:onClick="zheXianTu"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

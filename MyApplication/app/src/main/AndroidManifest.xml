@@ -55,7 +55,8 @@
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".activity.AnimalUpAndDownActivity" />
-        <activity android:name=".activity.MPAndroidChartActivity"></activity>
+        <activity android:name=".activity.mpandroidchart.MPAndroidChartActivity" />
+        <activity android:name=".activity.mpandroidchart.ZheXianActivity"></activity>
     </application>
 
 </manifest>

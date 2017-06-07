@@ -76,6 +76,6 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'org.greenrobot:greendao:3.1.0'
     compile 'fm.jiecao:jiecaovideoplayer:2.0'
+    compile 'com.github.PhilJay:MPAndroidChart:+'
     testCompile 'junit:junit:4.12'
-    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
 }
