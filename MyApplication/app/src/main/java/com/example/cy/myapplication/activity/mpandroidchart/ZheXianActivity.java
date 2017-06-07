@@ -37,7 +37,7 @@ public class ZheXianActivity extends AppCompatActivity {
 
         //设置描述
         Description description = new Description();
-        description.setText("正式表格的描述");//描述的文字
+        description.setText("不可描述的描述不可描述的描述");//描述的文字
         description.setTypeface(Typeface.DEFAULT_BOLD);//描述文字的字体
 
         mLineChar.setDescription(description);
@@ -47,10 +47,11 @@ public class ZheXianActivity extends AppCompatActivity {
         //设置线宽
         llXAxis.setLineWidth(4f);
         //
-        llXAxis.enableDashedLine(10f, 10f, 0f);
+        //llXAxis.enableDashedLine(10f, 50f, 0f);
         //设置
         llXAxis.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_BOTTOM);
         llXAxis.setTextSize(10f);
+        llXAxis.setLineColor(Color.GREEN);
 
         XAxis xAxis = mLineChar.getXAxis();
         xAxis.enableGridDashedLine(10f, 10f, 0f);
