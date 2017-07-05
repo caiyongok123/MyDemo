@@ -1,10 +1,12 @@
 package com.example.cy.myapplication;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.databinding.BaseObservable;
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +17,10 @@ import android.widget.TextView;
 
 import com.example.cy.myapplication.activity.AesActivity;
 import com.example.cy.myapplication.activity.AnimalUpAndDownActivity;
+import com.example.cy.myapplication.activity.BarActivity;
 import com.example.cy.myapplication.activity.CalendarActivity;
 import com.example.cy.myapplication.activity.CoordinatorLayoutTestActivity;
+import com.example.cy.myapplication.activity.DialogFragmentActivity;
 import com.example.cy.myapplication.activity.FragmentAnimActivity;
 import com.example.cy.myapplication.activity.GifActivity;
 import com.example.cy.myapplication.activity.GreenDaoActivity;
@@ -33,10 +37,12 @@ import com.example.cy.myapplication.activity.ThreadActivity;
 import com.example.cy.myapplication.activity.VitamioBundleActivity;
 import com.example.cy.myapplication.databinding.ActivityMainBinding;
 import com.example.cy.myapplication.databinding.ItemText50dpBinding;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
             ArrayList<String> urls = new ArrayList();
             urls.addAll(Arrays.asList(MyApplication.myApplication.getResources().getStringArray(R.array.imgUrls)));
 
-            Collections.addAll(mode.adapter.dataList, new ItemMode("自定义TabLayout", TabLayoutTestActivity.class),
+            Collections.addAll(mode.adapter.dataList,
+                    new ItemMode("自定义TabLayout", TabLayoutTestActivity.class),
                     new ItemMode("协调布局的简单使用", CoordinatorLayoutTestActivity.class),
                     new ItemMode("用Fresco和Glide播放Gif图", GifActivity.class),
                     new ItemMode("Fragment转场动画", FragmentAnimActivity.class),
@@ -68,7 +75,9 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("VitamioBundle框架播放视频", VitamioBundleActivity.class),
                     new ItemMode("节操框架播放视频", JiecaoActivity.class),
                     new ItemMode("图片上下回弹跳的动画", AnimalUpAndDownActivity.class),
-                    new ItemMode("MPAndroidChart图表", MPAndroidChartActivity.class)
+                    new ItemMode("MPAndroidChart图表", MPAndroidChartActivity.class),
+                    new ItemMode("DialogFragment", DialogFragmentActivity.class),
+                    new ItemMode("标题栏导航栏背景色设置", BarActivity.class)
             );
 
 
@@ -134,7 +143,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         ActivityMainBinding amb = DataBindingUtil.setContentView(this, R.layout.activity_main);
         amb.setViewMode(new ViewMode());
+
+
     }
+
 }
