@@ -1,6 +1,7 @@
 package com.example.cy.myapplication.activity;
 
 import android.annotation.TargetApi;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -35,6 +36,14 @@ public class BarActivity extends AppCompatActivity {
     @TargetApi(Build.VERSION_CODES.KITKAT)
     public void setTranslucentStatusBar(){
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+    }
+
+    /**
+     * 设置状态栏颜色为全透明21以上
+     */
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public void setTransparentStatusBar(){
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
     }
 
     /**
