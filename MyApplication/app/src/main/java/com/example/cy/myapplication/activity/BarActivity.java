@@ -65,4 +65,14 @@ public class BarActivity extends AppCompatActivity {
         View parentView = contentFrameLayout.getChildAt(0);
         parentView.setFitsSystemWindows(true);
     }
+
+    /**
+     * 使布局顶到屏幕顶部(与状态栏重叠)，(必须在setContentView 方法执行后才生效)
+     */
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+    public void setNotFitsSystemWindows(){
+        ViewGroup contentFrameLayout = (ViewGroup) findViewById(Window.ID_ANDROID_CONTENT);
+        View parentView = contentFrameLayout.getChildAt(0);
+        parentView.setFitsSystemWindows(false);
+    }
 }
