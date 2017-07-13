@@ -1,12 +1,10 @@
 package com.example.cy.myapplication;
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.databinding.BaseObservable;
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +17,7 @@ import com.example.cy.myapplication.activity.AesActivity;
 import com.example.cy.myapplication.activity.AnimalUpAndDownActivity;
 import com.example.cy.myapplication.activity.BarActivity;
 import com.example.cy.myapplication.activity.CalendarActivity;
+import com.example.cy.myapplication.activity.CameraPreviewActivity;
 import com.example.cy.myapplication.activity.CoordinatorLayoutTestActivity;
 import com.example.cy.myapplication.activity.DialogFragmentActivity;
 import com.example.cy.myapplication.activity.FragmentAnimActivity;
@@ -37,12 +36,10 @@ import com.example.cy.myapplication.activity.ThreadActivity;
 import com.example.cy.myapplication.activity.VitamioBundleActivity;
 import com.example.cy.myapplication.databinding.ActivityMainBinding;
 import com.example.cy.myapplication.databinding.ItemText50dpBinding;
-import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -77,7 +74,8 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("图片上下回弹跳的动画", AnimalUpAndDownActivity.class),
                     new ItemMode("MPAndroidChart图表", MPAndroidChartActivity.class),
                     new ItemMode("DialogFragment", DialogFragmentActivity.class),
-                    new ItemMode("标题栏导航栏背景色设置", BarActivity.class)
+                    new ItemMode("标题栏导航栏背景色设置", BarActivity.class),
+                    new ItemMode("像头预览，拍照发送图片到服务器进行识别", CameraPreviewActivity.class)
             );
 
 
