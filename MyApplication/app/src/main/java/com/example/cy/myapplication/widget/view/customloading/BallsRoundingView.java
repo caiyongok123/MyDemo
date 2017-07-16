@@ -10,15 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.RelativeLayout;
 
 import com.example.cy.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * Created by cy on 2017/7/16.
@@ -131,10 +128,5 @@ public class BallsRoundingView extends RelativeLayout {
 
             ball.setTag(oa);
         }
-    }
-
-
-    int dp2Px(int dp) {
-        return (int) (getContext().getResources().getDisplayMetrics().density * dp);
     }
 }
