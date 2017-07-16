@@ -5,7 +5,8 @@
     package="com.example.cy.myapplication">
 
     <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -60,7 +61,8 @@
         <activity android:name=".activity.mpandroidchart.ZheXianActivity" />
         <activity android:name=".activity.DialogFragmentActivity" />
         <activity android:name=".activity.BarActivity" />
-        <activity android:name=".activity.CameraPreviewActivity"></activity>
+        <activity android:name=".activity.CameraPreviewActivity" />
+        <activity android:name=".activity.CustomLoadingActivity"></activity>
     </application>
 
 </manifest>

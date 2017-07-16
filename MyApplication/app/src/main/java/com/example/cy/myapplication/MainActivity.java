@@ -19,6 +19,7 @@ import com.example.cy.myapplication.activity.BarActivity;
 import com.example.cy.myapplication.activity.CalendarActivity;
 import com.example.cy.myapplication.activity.CameraPreviewActivity;
 import com.example.cy.myapplication.activity.CoordinatorLayoutTestActivity;
+import com.example.cy.myapplication.activity.CustomLoadingActivity;
 import com.example.cy.myapplication.activity.DialogFragmentActivity;
 import com.example.cy.myapplication.activity.FragmentAnimActivity;
 import com.example.cy.myapplication.activity.GifActivity;
@@ -75,7 +76,8 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("MPAndroidChart图表", MPAndroidChartActivity.class),
                     new ItemMode("DialogFragment", DialogFragmentActivity.class),
                     new ItemMode("标题栏导航栏背景色设置", BarActivity.class),
-                    new ItemMode("像头预览，拍照发送图片到服务器进行识别", CameraPreviewActivity.class)
+                    new ItemMode("像头预览，拍照发送图片到服务器进行识别", CameraPreviewActivity.class),
+                    new ItemMode("自定义动画等待框",CustomLoadingActivity.class)
             );
 
 

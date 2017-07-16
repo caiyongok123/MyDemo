@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#999"
+    android:layout_width="100dp"
+    android:layout_height="100dp">
+
+    <View
+        android:id="@+id/ball3"
+        android:layout_margin="5dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/green"
+        android:layout_width="10dp"
+        android:layout_height="10dp"/>
+
+    <View
+        android:id="@+id/ball2"
+        android:layout_margin="2.5dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/red"
+        android:layout_width="15dp"
+        android:layout_height="15dp"/>
+
+    <View
+        android:id="@+id/ball1"
+        android:layout_centerHorizontal="true"
+        android:background="@color/blue"
+        android:layout_width="20dp"
+        android:layout_height="20dp"/>
+
+</RelativeLayout>
