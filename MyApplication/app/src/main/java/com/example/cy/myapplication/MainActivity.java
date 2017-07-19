@@ -1,11 +1,13 @@
 package com.example.cy.myapplication;
 
+import android.app.WallpaperManager;
 import android.content.Intent;
 import android.databinding.BaseObservable;
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -148,6 +150,12 @@ public class MainActivity extends AppCompatActivity {
         amb.setViewMode(new ViewMode());
 
 
+        try {
+
+            WallpaperManager.getInstance(this).setResource(R.drawable.shrink_video);
+        }catch (Exception e){
+            Log.e("桌面",e.getMessage()+"****************");
+        }
     }
 
 }

@@ -5,12 +5,14 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.cy.myapplication.R;
 
@@ -25,25 +27,11 @@ import java.util.List;
 public class BallsRoundingView extends RelativeLayout {
 
 
-    int minTime = 1000, tempTime = 80;//最快的小球一圈的时间，小球之间一圈时间的差值
+    int minTime = 2000, tempTime = 100;//最快的小球一圈的时间，小球之间一圈时间的差值
 
     List<View> balls = new ArrayList();
 
-
     View view;
-
-    public class Ball {
-        public int duration;
-        public int colorId;
-        public int radiusDp;
-
-        int x, y;
-
-        public Ball(int colorId, int radiusDp) {
-            this.colorId = colorId;
-            this.radiusDp = radiusDp;
-        }
-    }
 
 
     public BallsRoundingView(Context context) {
@@ -53,8 +41,6 @@ public class BallsRoundingView extends RelativeLayout {
     public BallsRoundingView(Context context, AttributeSet attrs) {
         super(context, attrs);
         view = LayoutInflater.from(context).inflate(R.layout.balls, this);
-
-
     }
 
 
@@ -74,33 +60,43 @@ public class BallsRoundingView extends RelativeLayout {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            play();
+            ObjectAnimator oa = (ObjectAnimator) balls.get(msg.what).getTag();
+            oa.start();
         }
     };
 
 
     private void play() {
-        for (int i = 0; i < balls.size(); i++) {
-            ObjectAnimator oa = (ObjectAnimator) balls.get(i).getTag();
-            oa.start();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < balls.size(); i++) {
+                    han.sendEmptyMessage(i);
+                    SystemClock.sleep(tempTime);
+                }
+            }
+        }).start();
     }
 
     /**
      * 添加小球,跑得快的小球先添加
      */
     void addBalls() {
+
         balls.add(view.findViewById(R.id.ball1));
         balls.add(view.findViewById(R.id.ball2));
         balls.add(view.findViewById(R.id.ball3));
+        balls.add(view.findViewById(R.id.ball4));
+        balls.add(view.findViewById(R.id.ball5));
+        balls.add(view.findViewById(R.id.ball6));
+
         for (int i = 0; i < balls.size(); i++) {
             View ball = balls.get(i);
-            //ball.setPivotX(width / 2 - dp2Px(20));
-            ball.setPivotY(height / 2);
+            ball.setPivotY(height / 2-dp2Px(i));
             ObjectAnimator oa = ObjectAnimator.ofFloat(ball, "rotation", 0, 360);
-            oa.setDuration(minTime + (i * tempTime));//设置动画时间
+            oa.setDuration(minTime);
             oa.setInterpolator(new AccelerateDecelerateInterpolator());//设置动画插入器，减速
-            oa.setRepeatCount(1);//设置动画重复次数，这里-1代表无限
+            oa.setRepeatCount(0);//设置动画重复次数，这里-1代表无限
 
             if (i==balls.size()-1){
                 oa.addListener(new Animator.AnimatorListener() {
@@ -111,7 +107,7 @@ public class BallsRoundingView extends RelativeLayout {
 
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        han.sendEmptyMessage(1);
+                        play();
                     }
 
                     @Override
@@ -128,5 +124,9 @@ public class BallsRoundingView extends RelativeLayout {
 
             ball.setTag(oa);
         }
+    }
+
+    int dp2Px(int dp){
+        return (int) (getContext().getResources().getDisplayMetrics().density*dp);
     }
 }

@@ -5,20 +5,44 @@
     android:layout_height="100dp">
 
     <View
-        android:id="@+id/ball3"
+        android:id="@+id/ball6"
         android:layout_margin="5dp"
         android:layout_centerHorizontal="true"
-        android:background="@color/green"
+        android:background="#000"
         android:layout_width="10dp"
         android:layout_height="10dp"/>
 
     <View
+        android:id="@+id/ball5"
+        android:layout_margin="4dp"
+        android:layout_centerHorizontal="true"
+        android:background="#783"
+        android:layout_width="12dp"
+        android:layout_height="12dp"/>
+
+    <View
+        android:id="@+id/ball4"
+        android:layout_margin="3dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/light_gray"
+        android:layout_width="14dp"
+        android:layout_height="14dp"/>
+
+    <View
+        android:id="@+id/ball3"
+        android:layout_margin="2dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/green"
+        android:layout_width="16dp"
+        android:layout_height="16dp"/>
+
+    <View
         android:id="@+id/ball2"
-        android:layout_margin="2.5dp"
+        android:layout_margin="1dp"
         android:layout_centerHorizontal="true"
         android:background="@color/red"
-        android:layout_width="15dp"
-        android:layout_height="15dp"/>
+        android:layout_width="18dp"
+        android:layout_height="18dp"/>
 
     <View
         android:id="@+id/ball1"
