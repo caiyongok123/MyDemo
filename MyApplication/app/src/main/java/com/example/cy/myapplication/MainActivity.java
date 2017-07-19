@@ -37,6 +37,7 @@ import com.example.cy.myapplication.activity.SystemDownLoadActivity;
 import com.example.cy.myapplication.activity.TabLayoutTestActivity;
 import com.example.cy.myapplication.activity.ThreadActivity;
 import com.example.cy.myapplication.activity.VitamioBundleActivity;
+import com.example.cy.myapplication.activity.qrscan.QrScanActivity;
 import com.example.cy.myapplication.databinding.ActivityMainBinding;
 import com.example.cy.myapplication.databinding.ItemText50dpBinding;
 
@@ -79,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("DialogFragment", DialogFragmentActivity.class),
                     new ItemMode("标题栏导航栏背景色设置", BarActivity.class),
                     new ItemMode("像头预览，拍照发送图片到服务器进行识别", CameraPreviewActivity.class),
-                    new ItemMode("自定义动画等待框",CustomLoadingActivity.class)
+                    new ItemMode("自定义动画等待框",CustomLoadingActivity.class),
+                    new ItemMode("二维码扫描",QrScanActivity.class)
             );
 
 
