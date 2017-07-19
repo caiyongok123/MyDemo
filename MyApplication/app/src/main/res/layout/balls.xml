@@ -24,7 +24,7 @@
         android:id="@+id/ball4"
         android:layout_margin="3dp"
         android:layout_centerHorizontal="true"
-        android:background="@color/light_gray"
+        android:background="#683333"
         android:layout_width="14dp"
         android:layout_height="14dp"/>
 
