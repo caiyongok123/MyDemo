@@ -78,4 +78,5 @@ dependencies {
     compile 'com.github.PhilJay:MPAndroidChart:+'
     testCompile 'junit:junit:4.12'
     compile files('libs/core_3.2.0.jar')
+    compile files('libs/zbar.jar')
 }
