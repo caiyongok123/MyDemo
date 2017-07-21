@@ -26,7 +26,7 @@ public class QrDecoder {
 
 
     /**
-     * 用Zbar扫描，不知道为什么，扫描条形码很蛋疼，很难扫，识别率超低
+     * 用ZXing扫描，不知道为什么，扫描条形码很蛋疼，很难扫，识别率超低
      * @param bm
      * @return
      */
