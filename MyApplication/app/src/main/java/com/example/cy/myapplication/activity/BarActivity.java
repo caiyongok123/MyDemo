@@ -26,7 +26,6 @@ public class BarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bar);
         setFitsSystemWindows();
 
-
     }
 
 
