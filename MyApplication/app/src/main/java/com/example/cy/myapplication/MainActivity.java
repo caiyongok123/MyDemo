@@ -28,6 +28,7 @@ import com.example.cy.myapplication.activity.GifActivity;
 import com.example.cy.myapplication.activity.GreenDaoActivity;
 import com.example.cy.myapplication.activity.ImagesActivity;
 import com.example.cy.myapplication.activity.JiecaoActivity;
+import com.example.cy.myapplication.activity.LiveWallpapersActivity;
 import com.example.cy.myapplication.activity.RsaActivity;
 import com.example.cy.myapplication.activity.mpandroidchart.MPAndroidChartActivity;
 import com.example.cy.myapplication.activity.MvvmActivity;
@@ -83,7 +84,9 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("标题栏导航栏背景色设置", BarActivity.class),
                     new ItemMode("像头预览，拍照发送图片到服务器进行识别", CameraPreviewActivity.class),
                     new ItemMode("自定义动画等待框",CustomLoadingActivity.class),
-                    new ItemMode("二维码扫描",QrScanActivity.class)
+                    new ItemMode("二维码扫描",QrScanActivity.class),
+                    new ItemMode("动态壁纸",LiveWallpapersActivity.class)
+
             );
 
 
@@ -155,8 +158,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         try {
+            //设置壁纸
+            //WallpaperManager.getInstance(this).setResource(R.drawable.shrink_video);
 
-            WallpaperManager.getInstance(this).setResource(R.drawable.shrink_video);
         }catch (Exception e){
             Log.e("桌面",e.getMessage()+"****************");
         }
