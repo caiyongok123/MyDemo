@@ -28,6 +28,7 @@ import com.example.cy.myapplication.activity.GifActivity;
 import com.example.cy.myapplication.activity.GreenDaoActivity;
 import com.example.cy.myapplication.activity.ImagesActivity;
 import com.example.cy.myapplication.activity.JiecaoActivity;
+import com.example.cy.myapplication.activity.RsaActivity;
 import com.example.cy.myapplication.activity.mpandroidchart.MPAndroidChartActivity;
 import com.example.cy.myapplication.activity.MvvmActivity;
 import com.example.cy.myapplication.activity.MyApplication;
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("用Fresco和Glide播放Gif图", GifActivity.class),
                     new ItemMode("Fragment转场动画", FragmentAnimActivity.class),
                     new ItemMode("AES加密解密", AesActivity.class),
+                    new ItemMode("RSA加密解密",RsaActivity.class),
                     new ItemMode("设置电源管理，使后台线程不自动休眠", ThreadActivity.class),
                     new ItemMode("展示系统相册所有图片", ImagesActivity.class),
                     new ItemMode("系统下载器下载安装apk", SystemDownLoadActivity.class),

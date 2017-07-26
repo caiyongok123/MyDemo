@@ -64,7 +64,8 @@
         <activity android:name=".activity.BarActivity" />
         <activity android:name=".activity.CameraPreviewActivity" />
         <activity android:name=".activity.CustomLoadingActivity" />
-        <activity android:name=".activity.qrscan.QrScanActivity"></activity>
+        <activity android:name=".activity.qrscan.QrScanActivity" />
+        <activity android:name=".activity.RsaActivity"></activity>
     </application>
 
 </manifest>
