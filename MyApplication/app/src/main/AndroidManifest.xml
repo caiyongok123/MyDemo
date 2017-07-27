@@ -7,6 +7,7 @@
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
+
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,7 +15,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.BIND_WALLPAPER"
+    <uses-permission
+        android:name="android.permission.BIND_WALLPAPER"
         tools:ignore="ProtectedPermissions" />
 
     <uses-permission
@@ -69,15 +71,21 @@
         <activity android:name=".activity.CustomLoadingActivity" />
         <activity android:name=".activity.qrscan.QrScanActivity" />
         <activity android:name=".activity.RsaActivity" />
-        <service android:name=".activity.LiveWallpapersActivity$LiveWallpapers">
+
+        <!--<service
+            android:enabled="true"
+            android:name=".activity.wallpapers.LiveWallpaperService"
+            android:permission="android.permission.BIND_WALLPAPER">
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
             </intent-filter>
-            <meta-data android:name="android.service.wallpaper" android:resource="@xml/livepaper"/>
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/livepaper" />
 
-        </service>
+        </service>-->
 
-        <activity android:name=".activity.LiveWallpapersActivity"></activity>
+        <activity android:name=".activity.wallpapers.LiveWallpapersActivity"></activity>
     </application>
 
 </manifest>

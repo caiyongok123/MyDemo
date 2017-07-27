@@ -6,6 +6,7 @@ import android.databinding.BaseObservable;
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,7 +29,7 @@ import com.example.cy.myapplication.activity.GifActivity;
 import com.example.cy.myapplication.activity.GreenDaoActivity;
 import com.example.cy.myapplication.activity.ImagesActivity;
 import com.example.cy.myapplication.activity.JiecaoActivity;
-import com.example.cy.myapplication.activity.LiveWallpapersActivity;
+import com.example.cy.myapplication.activity.wallpapers.LiveWallpapersActivity;
 import com.example.cy.myapplication.activity.RsaActivity;
 import com.example.cy.myapplication.activity.mpandroidchart.MPAndroidChartActivity;
 import com.example.cy.myapplication.activity.MvvmActivity;
@@ -43,6 +44,8 @@ import com.example.cy.myapplication.activity.qrscan.QrScanActivity;
 import com.example.cy.myapplication.databinding.ActivityMainBinding;
 import com.example.cy.myapplication.databinding.ItemText50dpBinding;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -87,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("二维码扫描",QrScanActivity.class),
                     new ItemMode("动态壁纸",LiveWallpapersActivity.class)
 
+
+                    // TODO: 2017/7/27 1.qq侧滑
             );
 
 
@@ -159,11 +164,13 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             //设置壁纸
-            //WallpaperManager.getInstance(this).setResource(R.drawable.shrink_video);
-
+            WallpaperManager.getInstance(this).setStream(new FileInputStream(new File(Environment.getExternalStorageDirectory().getPath()+"/"+ "IMG_20170726_014243.jpg")));
+            Log.e("桌面","****************");
         }catch (Exception e){
             Log.e("桌面",e.getMessage()+"****************");
         }
     }
 
 }
+
+
