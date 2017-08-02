@@ -24,6 +24,7 @@ import com.example.cy.myapplication.activity.CameraPreviewActivity;
 import com.example.cy.myapplication.activity.CoordinatorLayoutTestActivity;
 import com.example.cy.myapplication.activity.CustomLoadingActivity;
 import com.example.cy.myapplication.activity.DialogFragmentActivity;
+import com.example.cy.myapplication.activity.DrawerLayoutActivity;
 import com.example.cy.myapplication.activity.FragmentAnimActivity;
 import com.example.cy.myapplication.activity.GifActivity;
 import com.example.cy.myapplication.activity.GreenDaoActivity;
@@ -88,7 +89,8 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("像头预览，拍照发送图片到服务器进行识别", CameraPreviewActivity.class),
                     new ItemMode("自定义动画等待框",CustomLoadingActivity.class),
                     new ItemMode("二维码扫描",QrScanActivity.class),
-                    new ItemMode("动态壁纸",LiveWallpapersActivity.class)
+                    new ItemMode("动态壁纸",LiveWallpapersActivity.class),
+                    new ItemMode("官方侧滑v4.widget.DrawerLayout",DrawerLayoutActivity.class)
 
 
                     // TODO: 2017/7/27 1.qq侧滑

@@ -7,7 +7,6 @@
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
-
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -18,7 +17,6 @@
     <uses-permission
         android:name="android.permission.BIND_WALLPAPER"
         tools:ignore="ProtectedPermissions" />
-
     <uses-permission
         android:name="android.permission.DEVICE_POWER"
         tools:ignore="ProtectedPermissions" />
@@ -72,7 +70,8 @@
         <activity android:name=".activity.qrscan.QrScanActivity" />
         <activity android:name=".activity.RsaActivity" />
 
-        <!--<service
+        <!--
+        <service
             android:enabled="true"
             android:name=".activity.wallpapers.LiveWallpaperService"
             android:permission="android.permission.BIND_WALLPAPER">
@@ -83,9 +82,11 @@
                 android:name="android.service.wallpaper"
                 android:resource="@xml/livepaper" />
 
-        </service>-->
+        </service>
+        -->
 
-        <activity android:name=".activity.wallpapers.LiveWallpapersActivity"></activity>
+        <activity android:name=".activity.wallpapers.LiveWallpapersActivity" />
+        <activity android:name=".activity.DrawerLayoutActivity"></activity>
     </application>
 
 </manifest>
