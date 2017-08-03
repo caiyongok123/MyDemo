@@ -30,6 +30,7 @@ import com.example.cy.myapplication.activity.GifActivity;
 import com.example.cy.myapplication.activity.GreenDaoActivity;
 import com.example.cy.myapplication.activity.ImagesActivity;
 import com.example.cy.myapplication.activity.JiecaoActivity;
+import com.example.cy.myapplication.activity.filepath.FilePathActivity;
 import com.example.cy.myapplication.activity.wallpapers.LiveWallpapersActivity;
 import com.example.cy.myapplication.activity.RsaActivity;
 import com.example.cy.myapplication.activity.mpandroidchart.MPAndroidChartActivity;
@@ -90,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("自定义动画等待框",CustomLoadingActivity.class),
                     new ItemMode("二维码扫描",QrScanActivity.class),
                     new ItemMode("动态壁纸",LiveWallpapersActivity.class),
+                    new ItemMode("获取文件地址",FilePathActivity.class),
                     new ItemMode("官方侧滑v4.widget.DrawerLayout",DrawerLayoutActivity.class)
 
 
@@ -164,13 +166,13 @@ public class MainActivity extends AppCompatActivity {
         amb.setViewMode(new ViewMode());
 
 
-        try {
-            //设置壁纸
+       /* try {
+            //设置静态壁纸
             WallpaperManager.getInstance(this).setStream(new FileInputStream(new File(Environment.getExternalStorageDirectory().getPath()+"/"+ "IMG_20170726_014243.jpg")));
             Log.e("桌面","****************");
         }catch (Exception e){
             Log.e("桌面",e.getMessage()+"****************");
-        }
+        }*/
     }
 
 }
