@@ -9,8 +9,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
+import android.service.wallpaper.WallpaperService;
 
-import com.example.cy.myapplication.activity.wallpapers.LiveWallpaperService;
+import com.example.cy.myapplication.activity.wallpapers.Mp4LiveWallpaperService;
 
 /**
  * author: Coolspan
@@ -25,7 +26,7 @@ public class WallpaperUtil {
      * @param context
      * @param paramActivity
      */
-    public static void setLiveWallpaper(Context context, Activity paramActivity, int requestCode) {
+    public static void setLiveWallpaper(Context context, Activity paramActivity, Class<? extends WallpaperService> mClass, int requestCode) {
         try {
             Intent localIntent = new Intent();
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {//ICE_CREAM_SANDWICH_MR1  15
@@ -33,7 +34,7 @@ public class WallpaperUtil {
                 //android.service.wallpaper.extra.LIVE_WALLPAPER_COMPONENT
                 localIntent.putExtra(WallpaperManager.EXTRA_LIVE_WALLPAPER_COMPONENT
                         , new ComponentName(context.getApplicationContext().getPackageName()
-                                , LiveWallpaperService.class.getCanonicalName()));
+                                , mClass.getCanonicalName()));
             } else {
                 localIntent.setAction(WallpaperManager.ACTION_LIVE_WALLPAPER_CHOOSER);//android.service.wallpaper.LIVE_WALLPAPER_CHOOSER
             }
@@ -52,7 +53,7 @@ public class WallpaperUtil {
     public static boolean wallpaperIsUsed(Context paramContext) {
         WallpaperInfo localWallpaperInfo = WallpaperManager.getInstance(paramContext).getWallpaperInfo();
         return ((localWallpaperInfo != null) && (localWallpaperInfo.getPackageName().equals(paramContext.getPackageName())) &&
-                (localWallpaperInfo.getServiceName().equals(LiveWallpaperService.class.getCanonicalName())));
+                (localWallpaperInfo.getServiceName().equals(Mp4LiveWallpaperService.class.getCanonicalName())));
     }
 
     public static Bitmap getDefaultWallpaper(Context paramContext) {

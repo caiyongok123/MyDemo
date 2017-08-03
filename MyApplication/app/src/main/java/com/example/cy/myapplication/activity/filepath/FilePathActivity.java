@@ -1,5 +1,6 @@
 package com.example.cy.myapplication.activity.filepath;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -81,8 +82,9 @@ public class FilePathActivity extends AppCompatActivity {
 
         File file = new File(path);
         if (file.isFile()) {
-            Toast.makeText(this, "文件路径:" + path, Toast.LENGTH_LONG).show();
-            //finish();
+            //Toast.makeText(this, "文件路径:" + path, Toast.LENGTH_LONG).show();
+            setResult(RESULT_OK,new Intent().putExtra("path",path));
+            finish();
         } else {
             this.path = path;
             tvPath.setText(path);

@@ -76,7 +76,7 @@
         <activity android:name=".activity.RsaActivity" />
 
         <service
-            android:name=".activity.wallpapers.LiveWallpaperService"
+            android:name=".activity.wallpapers.Mp4LiveWallpaperService"
             android:enabled="true"
             android:permission="android.permission.BIND_WALLPAPER">
             <intent-filter>
@@ -87,10 +87,10 @@
                 android:name="android.service.wallpaper"
                 android:resource="@xml/livepaper" />
         </service>
-        <!--
+
         <service
             android:enabled="true"
-            android:name=".activity.wallpapers.LiveWallpaperService"
+            android:name=".activity.wallpapers.CameraLiveWallpaperService"
             android:permission="android.permission.BIND_WALLPAPER">
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
@@ -100,7 +100,7 @@
                 android:resource="@xml/livepaper" />
 
         </service>
-        -->
+
 
         <activity android:name=".activity.wallpapers.LiveWallpapersActivity" />
         <activity android:name=".activity.filepath.FilePathActivity"></activity>
