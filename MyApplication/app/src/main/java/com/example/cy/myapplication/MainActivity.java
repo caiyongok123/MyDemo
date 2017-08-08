@@ -31,6 +31,7 @@ import com.example.cy.myapplication.activity.GreenDaoActivity;
 import com.example.cy.myapplication.activity.ImagesActivity;
 import com.example.cy.myapplication.activity.JiecaoActivity;
 import com.example.cy.myapplication.activity.filepath.FilePathActivity;
+import com.example.cy.myapplication.activity.sound.SoundCompoundActivity;
 import com.example.cy.myapplication.activity.wallpapers.LiveWallpapersActivity;
 import com.example.cy.myapplication.activity.RsaActivity;
 import com.example.cy.myapplication.activity.mpandroidchart.MPAndroidChartActivity;
@@ -92,7 +93,8 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("二维码扫描",QrScanActivity.class),
                     new ItemMode("动态壁纸",LiveWallpapersActivity.class),
                     new ItemMode("获取文件地址",FilePathActivity.class),
-                    new ItemMode("官方侧滑v4.widget.DrawerLayout",DrawerLayoutActivity.class)
+                    new ItemMode("官方侧滑v4.widget.DrawerLayout",DrawerLayoutActivity.class),
+                    new ItemMode("录音功能测试",SoundCompoundActivity.class)
 
 
                     // TODO: 2017/7/27 1.qq侧滑
