@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.cy.myapplication.R;
+import com.umeng.analytics.MobclickAgent;
 
 import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
@@ -28,6 +29,18 @@ import java.io.IOException;
  * 需要录音权限：android.permission.RECORD_AUDIO
  */
 public class SoundCompoundActivity extends AppCompatActivity {
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
 
     int soundLevel = 0;//当前分贝级别
     int maxLevel = 8;//最大分贝等级
@@ -54,6 +67,7 @@ public class SoundCompoundActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sound_compound);
 
+        int i = 10/0;
         audioRecord = new AudioRecord(audioSource, sampleRateInHz, channelConfig, audioFormat, bufferSizeInBytes);
 
         fileTemp = new File(Environment.getExternalStorageDirectory() + "/temp.wav");

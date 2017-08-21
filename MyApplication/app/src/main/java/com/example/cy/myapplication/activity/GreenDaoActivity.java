@@ -6,11 +6,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cy.myapplication.MyApplication;
 import com.example.cy.myapplication.R;
-import com.example.cy.myapplication.entity.DaoMaster;
-import com.example.cy.myapplication.entity.DaoSession;
 import com.example.cy.myapplication.entity.User;
-import com.example.cy.myapplication.entity.UserDao;
 import com.google.gson.Gson;
 
 import java.util.List;

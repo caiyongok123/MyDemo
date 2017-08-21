@@ -1,20 +1,24 @@
 package com.example.cy.myapplication;
 
-import android.app.WallpaperManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.databinding.BaseObservable;
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cy.myapplication.activity.AesActivity;
 import com.example.cy.myapplication.activity.AnimalUpAndDownActivity;
@@ -27,6 +31,7 @@ import com.example.cy.myapplication.activity.DialogFragmentActivity;
 import com.example.cy.myapplication.activity.DrawerLayoutActivity;
 import com.example.cy.myapplication.activity.FragmentAnimActivity;
 import com.example.cy.myapplication.activity.GifActivity;
+import com.example.cy.myapplication.activity.GoogleMapActivity;
 import com.example.cy.myapplication.activity.GreenDaoActivity;
 import com.example.cy.myapplication.activity.ImagesActivity;
 import com.example.cy.myapplication.activity.JiecaoActivity;
@@ -36,7 +41,6 @@ import com.example.cy.myapplication.activity.wallpapers.LiveWallpapersActivity;
 import com.example.cy.myapplication.activity.RsaActivity;
 import com.example.cy.myapplication.activity.mpandroidchart.MPAndroidChartActivity;
 import com.example.cy.myapplication.activity.MvvmActivity;
-import com.example.cy.myapplication.activity.MyApplication;
 import com.example.cy.myapplication.activity.NetImagesActivity;
 import com.example.cy.myapplication.activity.SensorActivity;
 import com.example.cy.myapplication.activity.SystemDownLoadActivity;
@@ -46,14 +50,28 @@ import com.example.cy.myapplication.activity.VitamioBundleActivity;
 import com.example.cy.myapplication.activity.qrscan.QrScanActivity;
 import com.example.cy.myapplication.databinding.ActivityMainBinding;
 import com.example.cy.myapplication.databinding.ItemText50dpBinding;
+import com.umeng.analytics.MobclickAgent;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+import static android.view.WindowManager.LayoutParams.TYPE_PHONE;
+
 public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
 
     public static class ViewMode {
         public MyAdapter adapter = new MyAdapter();
@@ -94,15 +112,16 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("动态壁纸",LiveWallpapersActivity.class),
                     new ItemMode("获取文件地址",FilePathActivity.class),
                     new ItemMode("官方侧滑v4.widget.DrawerLayout",DrawerLayoutActivity.class),
-                    new ItemMode("录音功能测试",SoundCompoundActivity.class)
-
+                    new ItemMode("录音功能测试",SoundCompoundActivity.class),
+                    new ItemMode("谷歌地图测试",GoogleMapActivity.class)
 
                     // TODO: 2017/7/27 1.qq侧滑
             );
 
 
-
             lv.setAdapter(mode.adapter);
+
+            MobclickAgent.reportError(MyApplication.myApplication, "123123123123123123123123123123123123123");
         }
     }
 
@@ -168,13 +187,23 @@ public class MainActivity extends AppCompatActivity {
         amb.setViewMode(new ViewMode());
 
 
-       /* try {
-            //设置静态壁纸
-            WallpaperManager.getInstance(this).setStream(new FileInputStream(new File(Environment.getExternalStorageDirectory().getPath()+"/"+ "IMG_20170726_014243.jpg")));
-            Log.e("桌面","****************");
-        }catch (Exception e){
-            Log.e("桌面",e.getMessage()+"****************");
-        }*/
+        /*View view = LayoutInflater.from(MyApplication.myApplication).inflate(R.layout.xuanfu,null);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MyApplication.myApplication,"点个妹子点",Toast.LENGTH_LONG).show();
+            }
+        });
+        WindowManager windowManager = (WindowManager) getApplication().getSystemService(Context.WINDOW_SERVICE);
+
+        WindowManager.LayoutParams layoutParams =new WindowManager.LayoutParams(WRAP_CONTENT,WRAP_CONTENT);
+        layoutParams.type =TYPE_PHONE;
+        layoutParams.format = PixelFormat.RGBA_8888;
+        layoutParams.flags =  WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+        layoutParams.width=200;
+        layoutParams.height=200;
+        layoutParams.gravity= Gravity.RIGHT | Gravity.TOP;
+        windowManager.addView(view,layoutParams);*/
     }
 
 }
