@@ -109,7 +109,12 @@ public class GMapUtil implements OnMapReadyCallback {
      * 停止定位
      */
     public void stopLocationServer() {
-        mGLocationUtil.stopLocationServer();
+        try {
+            mGLocationUtil.stopLocationServer();
+        }catch (Exception e){
+
+        }
+
     }
 
 
