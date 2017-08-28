@@ -179,6 +179,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    void p(){
+        PermissionManager
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
