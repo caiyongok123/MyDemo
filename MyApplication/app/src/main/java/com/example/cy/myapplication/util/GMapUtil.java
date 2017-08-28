@@ -240,8 +240,7 @@ public class GMapUtil implements OnMapReadyCallback {
      * @param tag
      */
     public void getGoogleAddress(StringCallback restListener, LatLng latLng,Object tag) {
-        ApplicationInfo info = MyApplication.myApplication.getApplicationInfo();
-        String googleMapKey = info.metaData.getString("com.google.android.geo.API_KEY");
+        String googleMapKey = "AIzaSyBksNqyF61E3wN1-D9bM0GvRtZoFXjuYkA";
         String url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latLng.latitude + "," + latLng.longitude + "&key=" + googleMapKey;
         OkGo.getInstance().cancelTag(tag);
         OkGo.get(url).tag(tag).execute(restListener);

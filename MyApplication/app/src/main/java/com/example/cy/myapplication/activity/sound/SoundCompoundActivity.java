@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.cy.myapplication.R;
-import com.umeng.analytics.MobclickAgent;
 
 import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
@@ -29,18 +28,6 @@ import java.io.IOException;
  * 需要录音权限：android.permission.RECORD_AUDIO
  */
 public class SoundCompoundActivity extends AppCompatActivity {
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        MobclickAgent.onResume(this);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        MobclickAgent.onPause(this);
-    }
 
     int soundLevel = 0;//当前分贝级别
     int maxLevel = 8;//最大分贝等级
@@ -67,7 +54,6 @@ public class SoundCompoundActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sound_compound);
 
-        int i = 10/0;
         audioRecord = new AudioRecord(audioSource, sampleRateInHz, channelConfig, audioFormat, bufferSizeInBytes);
 
         fileTemp = new File(Environment.getExternalStorageDirectory() + "/temp.wav");
@@ -94,10 +80,15 @@ public class SoundCompoundActivity extends AppCompatActivity {
 
     }
 
-    int setSoundLevel(long v ,int bufferReadResult) {
-
+    int setSoundLevel(short[] buffer) {
+        int r = audioRecord.read(buffer, 0, bufferSizeInBytes);
+        long v = 0;
+        // 将 buffer 内容取出，进行平方和运算
+        for (int i = 0; i < buffer.length; i++) {
+            v += buffer[i] * buffer[i];
+        }
         // 平方和除以数据总长度，得到音量大小。
-        double mean = v / (double) bufferReadResult;
+        double mean = v / (double) r;
         double volume = 10 * Math.log10(mean);
         return soundLevel = (int) (volume / (SAMPLE_RATE_IN_HZ / maxLevel));
     }
@@ -113,13 +104,9 @@ public class SoundCompoundActivity extends AppCompatActivity {
                     DataOutputStream dos = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(fileTemp)));
                     while (isRecording) {
                         int bufferReadResult = audioRecord.read(buffer, 0, bufferSizeInBytes);
-                        //setSoundLevel(buffer);
-                        long v = 0;
-                        for (int i = 0; i < bufferReadResult; i++) {
-                            v += buffer[i] * buffer[i];
+                        setSoundLevel(buffer);
+                        for (int i = 0; i < bufferReadResult; i++)
                             dos.writeShort(Short.reverseBytes(buffer[i]));
-                        }
-                        setSoundLevel(v,bufferReadResult);
                     }
                     audioRecord.stop();
                     dos.close();
