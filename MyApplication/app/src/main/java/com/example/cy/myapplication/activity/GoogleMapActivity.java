@@ -63,25 +63,28 @@ public class GoogleMapActivity extends AppCompatActivity {
 
             @Override
             public void onLocationChanged(Location location, boolean isFirstLocation) {
-                if (isFirstLocation){
+                if (isFirstLocation) {
                     gMapUtil.moveCamera(location);
                 }
-                gMapUtil.getGoogleAddress(new StringCallback() {
-                    @Override
-                    public void onSuccess(String s, Call call, Response response) {
-                        GoogleSearchInfo info = new Gson().fromJson(s,GoogleSearchInfo.class);
-                        if (info.isSuccess()){
+                try {
+                    gMapUtil.getGoogleAddress(new StringCallback() {
+                        @Override
+                        public void onSuccess(String s, Call call, Response response) {
+                            /*GoogleSearchInfo info = new Gson().fromJson(s, GoogleSearchInfo.class);
+                            if (info.isSuccess()) {
 
+                            }*/
+                            Log.e("地址：", s + "??");
                         }
-                        Log.e("地址：",s+"??");
-                    }
 
-                    @Override
-                    public void onError(Call call, Response response, Exception e) {
-                        super.onError(call, response, e);
-                        Log.e("地址：","地址查询失败");
-                    }
-                },new LatLng(location.getLatitude(),location.getLongitude()),GoogleMapActivity.this);
+                        @Override
+                        public void onError(Call call, Response response, Exception e) {
+                            super.onError(call, response, e);
+                            Log.e("地址：", "地址查询失败");
+                        }
+                    }, new LatLng(location.getLatitude(), location.getLongitude()), GoogleMapActivity.this);
+                }catch (Exception e){Log.e("ccccccccc",e.getMessage());}
+
             }
 
             @Override
