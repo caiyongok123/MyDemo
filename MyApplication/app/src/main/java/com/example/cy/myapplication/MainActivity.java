@@ -34,6 +34,7 @@ import com.example.cy.myapplication.activity.GifActivity;
 import com.example.cy.myapplication.activity.GoogleMapActivity;
 import com.example.cy.myapplication.activity.GreenDaoActivity;
 import com.example.cy.myapplication.activity.ImagesActivity;
+import com.example.cy.myapplication.activity.ItemsViewGroupTestActivity;
 import com.example.cy.myapplication.activity.JiecaoActivity;
 import com.example.cy.myapplication.activity.filepath.FilePathActivity;
 import com.example.cy.myapplication.activity.sound.SoundCompoundActivity;
@@ -50,6 +51,7 @@ import com.example.cy.myapplication.activity.VitamioBundleActivity;
 import com.example.cy.myapplication.activity.qrscan.QrScanActivity;
 import com.example.cy.myapplication.databinding.ActivityMainBinding;
 import com.example.cy.myapplication.databinding.ItemText50dpBinding;
+import com.example.cy.myapplication.widget.view.ItemsViewGroup;
 import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
@@ -85,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
             Collections.addAll(mode.adapter.dataList,
                     new ItemMode("自定义TabLayout", TabLayoutTestActivity.class),
+                    new ItemMode("自适应Items布局测试", ItemsViewGroupTestActivity.class),
                     new ItemMode("协调布局的简单使用", CoordinatorLayoutTestActivity.class),
                     new ItemMode("用Fresco和Glide播放Gif图", GifActivity.class),
                     new ItemMode("Fragment转场动画", FragmentAnimActivity.class),
@@ -179,9 +182,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    void p(){
-        PermissionManager
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

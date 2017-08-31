@@ -4,7 +4,7 @@
     <item android:drawable="@drawable/iv_t1" android:state_selected="false"></item>
     <item  android:state_selected="true">
         <shape>
-            <solid android:color="#00000000"/>
+            <solid android:color="#000000"/>
         </shape>
     </item>
 </selector>

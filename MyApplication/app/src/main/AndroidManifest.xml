@@ -42,14 +42,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--谷歌地图-->
+        <!-- 谷歌地图 -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBksNqyF61E3wN1-D9bM0GvRtZoFXjuYkA" />
-        <!--谷歌地图-->
+        <!-- 谷歌地图 -->
+
 
         <!-- 友盟 -->
         <meta-data
@@ -131,7 +132,8 @@
         <activity android:name=".activity.filepath.FilePathActivity" />
         <activity android:name=".activity.DrawerLayoutActivity" />
         <activity android:name=".activity.sound.SoundCompoundActivity" />
-        <activity android:name=".activity.GoogleMapActivity"></activity>
+        <activity android:name=".activity.GoogleMapActivity" />
+        <activity android:name=".activity.ItemsViewGroupTestActivity"></activity>
     </application>
 
 </manifest>

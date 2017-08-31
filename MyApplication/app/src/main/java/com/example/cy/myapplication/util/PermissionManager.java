@@ -24,17 +24,17 @@ public class PermissionManager {
 
     }
 
-    public static void equestPermission(Activity activities;String[]permissions, Listener listener) {
+    public static void equestPermission(Activity activity,String[] permissions, Listener listener) {
         boolean granted = true;
-        for (String p:permissions){
-            if (ContextCompat.checkSelfPermission(MyApplication.myApplication, p) != PackageManager.PERMISSION_GRANTED){
+        for (String p : permissions) {
+            if (ContextCompat.checkSelfPermission(activity, p) != PackageManager.PERMISSION_GRANTED) {
                 granted = false;
             }
         }
-        if (granted){
+        if (granted) {
             listener.onGranted();
-        }else {
-            ActivityCompat.requestPermissions(MyApplication.myApplication,permissions, 952792);
+        } else {
+            ActivityCompat.requestPermissions(activity, permissions, 952792);
         }
 
     }
