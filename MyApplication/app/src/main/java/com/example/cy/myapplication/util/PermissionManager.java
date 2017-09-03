@@ -24,10 +24,10 @@ public class PermissionManager {
 
     }
 
-    public static void equestPermission(Activity activity,String[] permissions, Listener listener) {
+    public static void requestPermission(Activity activity, String[] permissions, Listener listener) {
         boolean granted = true;
         for (String p : permissions) {
-            if (ContextCompat.checkSelfPermission(activity, p) != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(MyApplication.myApplication, p) != PackageManager.PERMISSION_GRANTED) {
                 granted = false;
             }
         }
