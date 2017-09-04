@@ -1,24 +1,17 @@
 package com.example.cy.myapplication;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.databinding.BaseObservable;
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
-import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.cy.myapplication.activity.AesActivity;
 import com.example.cy.myapplication.activity.AnimalUpAndDownActivity;
@@ -36,6 +29,7 @@ import com.example.cy.myapplication.activity.GreenDaoActivity;
 import com.example.cy.myapplication.activity.ImagesActivity;
 import com.example.cy.myapplication.activity.ItemsViewGroupTestActivity;
 import com.example.cy.myapplication.activity.JiecaoActivity;
+import com.example.cy.myapplication.activity.ScrollTogetherActivity;
 import com.example.cy.myapplication.activity.filepath.FilePathActivity;
 import com.example.cy.myapplication.activity.sound.SoundCompoundActivity;
 import com.example.cy.myapplication.activity.wallpapers.LiveWallpapersActivity;
@@ -51,15 +45,11 @@ import com.example.cy.myapplication.activity.VitamioBundleActivity;
 import com.example.cy.myapplication.activity.qrscan.QrScanActivity;
 import com.example.cy.myapplication.databinding.ActivityMainBinding;
 import com.example.cy.myapplication.databinding.ItemText50dpBinding;
-import com.example.cy.myapplication.widget.view.ItemsViewGroup;
 import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-
-import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
-import static android.view.WindowManager.LayoutParams.TYPE_PHONE;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -116,7 +106,8 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("获取文件地址",FilePathActivity.class),
                     new ItemMode("官方侧滑v4.widget.DrawerLayout",DrawerLayoutActivity.class),
                     new ItemMode("录音功能测试",SoundCompoundActivity.class),
-                    new ItemMode("谷歌地图测试",GoogleMapActivity.class)
+                    new ItemMode("谷歌地图测试",GoogleMapActivity.class),
+                    new ItemMode("联合滑动测试",ScrollTogetherActivity.class)
 
                     // TODO: 2017/7/27 1.qq侧滑
             );
