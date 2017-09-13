@@ -30,6 +30,7 @@ import com.example.cy.myapplication.activity.ImagesActivity;
 import com.example.cy.myapplication.activity.ItemsViewGroupTestActivity;
 import com.example.cy.myapplication.activity.JiecaoActivity;
 import com.example.cy.myapplication.activity.ScrollTogetherActivity;
+import com.example.cy.myapplication.activity.SeekBarActivity;
 import com.example.cy.myapplication.activity.filepath.FilePathActivity;
 import com.example.cy.myapplication.activity.sound.SoundCompoundActivity;
 import com.example.cy.myapplication.activity.wallpapers.LiveWallpapersActivity;
@@ -107,7 +108,8 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("官方侧滑v4.widget.DrawerLayout",DrawerLayoutActivity.class),
                     new ItemMode("录音功能测试",SoundCompoundActivity.class),
                     new ItemMode("谷歌地图测试",GoogleMapActivity.class),
-                    new ItemMode("联合滑动测试",ScrollTogetherActivity.class)
+                    new ItemMode("联合滑动测试",ScrollTogetherActivity.class),
+                    new ItemMode("拖动进度条",SeekBarActivity.class)
 
                     // TODO: 2017/7/27 1.qq侧滑
             );

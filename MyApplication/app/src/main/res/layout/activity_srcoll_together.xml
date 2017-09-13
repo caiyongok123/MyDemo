@@ -4,38 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     tools:context="com.example.cy.myapplication.activity.ScrollTogetherActivity">
 
 
-    <com.example.cy.myapplication.widget.view.MyScrollView
-        android:id="@+id/sv1"
-        android:layout_width="100dp"
-        android:layout_height="400dp">
+    <!--上面的标题栏-->
+    <com.example.cy.myapplication.widget.view.customloading.MyHorizontalScrollView
+        android:id="@+id/hsv_top"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        android:background="#999">
 
-        <TextView
-            android:textSize="28sp"
-            android:gravity="center_horizontal"
-            android:background="@color/red"
+        <LinearLayout
+            android:id="@+id/ll_title_top"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="1\n2\n3\n4\n5\n6\n7\n8\n9\n1\n2\n3\n4\n5\n6\n7\n8\n9\n1\n2\n3\n4\n5\n6\n7\n8\n9\n1\n2\n3\n4\n5\n6\n7\n8\n9\n1\n2\n3\n4\n5\n6\n7\n8\n9\n"
-            android:textColor="@color/white" />
-    </com.example.cy.myapplication.widget.view.MyScrollView>
+            android:layout_height="50dp"
+            android:orientation="horizontal">
 
-    <com.example.cy.myapplication.widget.view.MyScrollView
-        android:id="@+id/sv2"
-        android:layout_width="100dp"
-        android:layout_height="400dp">
+        </LinearLayout>
+    </com.example.cy.myapplication.widget.view.customloading.MyHorizontalScrollView>
 
-        <TextView
-            android:textSize="28sp"
-            android:gravity="center_horizontal"
-            android:background="@color/green"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!--左边的标题栏-->
+        <com.example.cy.myapplication.widget.view.MyScrollView
+            android:id="@+id/sv_left"
+            android:background="#999"
+            android:layout_width="50dp"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/ll_title_left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </com.example.cy.myapplication.widget.view.MyScrollView>
+
+        <com.example.cy.myapplication.widget.view.MyScrollView
+            android:id="@+id/sv_center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="1\n2\n3\n4\n5\n6\n7\n8\n9\n1\n2\n3\n4\n5\n6\n7\n8\n9\n1\n2\n3\n4\n5\n6\n7\n8\n9\n1\n2\n3\n4\n5\n6\n7\n8\n9\n1\n2\n3\n4\n5\n6\n7\n8\n9\n"
-            android:textColor="@color/white" />
-    </com.example.cy.myapplication.widget.view.MyScrollView>
+            android:layout_height="match_parent">
 
+
+            <com.example.cy.myapplication.widget.view.customloading.MyHorizontalScrollView
+                android:id="@+id/hsv_center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/ll_center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+            </com.example.cy.myapplication.widget.view.customloading.MyHorizontalScrollView>
+        </com.example.cy.myapplication.widget.view.MyScrollView>
+    </LinearLayout>
 </LinearLayout>
