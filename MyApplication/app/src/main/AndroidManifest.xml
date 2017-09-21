@@ -135,7 +135,8 @@
         <activity android:name=".activity.GoogleMapActivity" />
         <activity android:name=".activity.ItemsViewGroupTestActivity" />
         <activity android:name=".activity.ScrollTogetherActivity" />
-        <activity android:name=".activity.SeekBarActivity"></activity>
+        <activity android:name=".activity.SeekBarActivity" />
+        <activity android:name=".activity.RotatingMenuActivity"></activity>
     </application>
 
 </manifest>
