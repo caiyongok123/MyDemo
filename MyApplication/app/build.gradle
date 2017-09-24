@@ -102,7 +102,7 @@ dependencies {
     compile 'org.greenrobot:greendao:3.1.0'
     compile 'fm.jiecao:jiecaovideoplayer:2.0'
     compile 'com.github.PhilJay:MPAndroidChart:+'
-    compile 'com.umeng.analytics:analytics:latest.integration'
+    //compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'com.google.android.gms:play-services-maps:10.2.1'
     testCompile 'junit:junit:4.12'
 }

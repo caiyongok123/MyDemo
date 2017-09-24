@@ -18,7 +18,7 @@ import java.util.List;
  * 旋转菜单布局
  */
 
-public class RotatingMenuLayout extends ViewGroup{
+public class RotatingMenuLayout extends ViewGroup {
 
     Context context;
 
@@ -36,20 +36,20 @@ public class RotatingMenuLayout extends ViewGroup{
     public RotatingMenuLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
-        setPadding(0,0,0,0);
+        setPadding(0, 0, 0, 0);
 
     }
 
-    public void setItemList(List<Object> list){
+    public void setItemList(List<Object> list) {
         removeAllViews();
-        itemList=list;
+        itemList = list;
         itemViewList = new ArrayList<>();
-        if (itemList!=null){
+        if (itemList != null) {
             for (int i = 0; i < itemList.size(); i++) {
-                if (itemLayoutId == 0){
+                if (itemLayoutId == 0) {
                     itemLayoutId = R.layout.item_rotating_menu;
                 }
-                itemViewList.add(LayoutInflater.from(context).inflate(itemLayoutId,null));
+                itemViewList.add(LayoutInflater.from(context).inflate(itemLayoutId, null));
                 addView(itemViewList.get(i));
             }
         }
@@ -91,22 +91,19 @@ public class RotatingMenuLayout extends ViewGroup{
         }
 
         setMeasuredDimension(resWidth, resHeight);
-        try {
-            View view = getChildAt(0);
-            itemSize = view.getMeasuredHeight();
-        }catch (Exception e){}
+
 
 
     }
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        if (itemList!=null && !itemList.isEmpty()){
+        if (itemList != null && !itemList.isEmpty()) {
             for (int i = 0; i < itemList.size(); i++) {
                 View view = getChildAt(i);
                 int[] xy = getXY(i);
-                if (xy!=null){
-                    view.layout(xy[0],xy[1],xy[0]+itemSize,xy[1]+itemSize);
+                if (xy != null) {
+                    view.layout(xy[0], xy[1], xy[0] + itemSize, xy[1] + itemSize);
                 }
 
             }
@@ -128,15 +125,30 @@ public class RotatingMenuLayout extends ViewGroup{
     }
 
 
-    int[] getXY(int index){
-        if (itemList!=null && !itemList.isEmpty()){
-            int x = resWidth/2;
-            int y = resHeight/2;
-            int radius = (int) Math.sqrt(x*x-(itemSize /2)*(itemSize /2))- itemSize /2;
-            x = (int) Math.sin((360f/itemList.size()*index+angle)/180*Math.PI)-itemSize/2;
-            y = (int) Math.cos((360f/itemList.size()*index+angle)/180*Math.PI)-itemSize/2;
-            return new int[]{x,y};
-        }else {
+    int[] getXY(int index) {
+        if (itemList != null && !itemList.isEmpty()) {
+            int x, y;
+            x = y = resWidth / 2;
+            itemSize = itemViewList.get(0).getWidth();
+            int radius = (int) Math.sqrt(x * x - (itemSize / 2) * (itemSize / 2)) - itemSize / 2;
+            float f = (360f / ((float) itemList.size()) * index + angle) % 360;
+            if (f >= 0 && f < 90) {
+                x = (int) (x + Math.sin(f / 180 * Math.PI) * radius);
+                y = (int) (y - Math.cos(f / 180 * Math.PI) * radius);
+            } else if (f >= 90 && f < 180) {
+                x = (int) (x + Math.cos(f / 180 * Math.PI) * radius);
+                y = (int) (y + Math.sin(f / 180 * Math.PI) * radius);
+            } else if (f >= 180 && f < 270) {
+                f -= 180;
+                x = (int) (x - Math.sin(f / 180 * Math.PI) * radius);
+                y = (int) (y + Math.cos(f / 180 * Math.PI) * radius);
+            } else if (f >= 270 && f < 360) {
+                f -= 180;
+                x = (int) (x - Math.cos(f / 180 * Math.PI) * radius);
+                y = (int) (y - Math.sin(f / 180 * Math.PI) * radius);
+            }
+            return new int[]{x, y};
+        } else {
             return null;
         }
     }
