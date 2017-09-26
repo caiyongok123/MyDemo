@@ -205,6 +205,22 @@ public class RotatingMenuLayout extends ViewGroup {
     }
 
 
+    double getAngle(int x,int y){
+
+        if (x >resWidth / 2 && y < resWidth / 2) {//第一象限
+            Math.asin((x-resWidth / 2)/(resWidth/2-y))
+        } else if (x >resWidth / 2 && y > resWidth / 2) {//第二象限
+
+        } else if (x <resWidth / 2 && y > resWidth / 2) {//第三象限
+
+        } else if (x <resWidth / 2 && y < resWidth / 2) {//第四象限
+
+        }else {
+            return -1000;
+        }
+    }
+
+
     float touchX, touchY;
 
     @Override
