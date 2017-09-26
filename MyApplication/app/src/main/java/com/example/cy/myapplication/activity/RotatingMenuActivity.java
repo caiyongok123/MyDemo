@@ -25,6 +25,6 @@ public class RotatingMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rotating_menu);
         ButterKnife.bind(this);
 
-        rml.setItemList(new ArrayList(){{add("");add("");add("");}});
+        rml.setItemList(new ArrayList(){{add("");add("");add("");add("");add("");add("");}});
     }
 }
