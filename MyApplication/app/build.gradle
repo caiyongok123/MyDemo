@@ -88,6 +88,7 @@ dependencies {
     compile files('libs/zbar.jar')
     compile files('libs/umeng-analytics-v6.1.2.jar')
     compile files('libs/utdid4all-1.0.4.jar')
+    //compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'com.lzy.net:okgo:2.1.4'
     compile 'com.lzy.net:okrx:0.1.2'
     compile 'com.lzy.net:okserver:1.1.3'
@@ -102,7 +103,6 @@ dependencies {
     compile 'org.greenrobot:greendao:3.1.0'
     compile 'fm.jiecao:jiecaovideoplayer:2.0'
     compile 'com.github.PhilJay:MPAndroidChart:+'
-    //compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'com.google.android.gms:play-services-maps:10.2.1'
     testCompile 'junit:junit:4.12'
 }

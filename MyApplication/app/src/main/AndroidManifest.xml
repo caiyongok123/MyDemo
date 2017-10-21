@@ -136,7 +136,8 @@
         <activity android:name=".activity.ItemsViewGroupTestActivity" />
         <activity android:name=".activity.ScrollTogetherActivity" />
         <activity android:name=".activity.SeekBarActivity" />
-        <activity android:name=".activity.RotatingMenuActivity"></activity>
+        <activity android:name=".activity.RotatingMenuActivity" />
+        <activity android:name=".activity.TestActivity"></activity>
     </application>
 
 </manifest>
