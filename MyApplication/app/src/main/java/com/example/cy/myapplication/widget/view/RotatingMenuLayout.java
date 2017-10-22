@@ -205,7 +205,7 @@ public class RotatingMenuLayout extends ViewGroup {
     }
 
 
-    double getAngle(int x,int y){
+    /*double getAngle(int x,int y){
 
         if (x >resWidth / 2 && y < resWidth / 2) {//第一象限
             Math.asin((x-resWidth / 2)/(resWidth/2-y))
@@ -218,7 +218,7 @@ public class RotatingMenuLayout extends ViewGroup {
         }else {
             return -1000;
         }
-    }
+    }*/
 
 
     float touchX, touchY;
