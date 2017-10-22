@@ -32,7 +32,7 @@ import com.example.cy.myapplication.activity.JiecaoActivity;
 import com.example.cy.myapplication.activity.RotatingMenuActivity;
 import com.example.cy.myapplication.activity.ScrollTogetherActivity;
 import com.example.cy.myapplication.activity.SeekBarActivity;
-import com.example.cy.myapplication.activity.TestActivity;
+import com.example.cy.myapplication.activity.StringsPopupWindowTestActivity;
 import com.example.cy.myapplication.activity.filepath.FilePathActivity;
 import com.example.cy.myapplication.activity.sound.SoundCompoundActivity;
 import com.example.cy.myapplication.activity.wallpapers.LiveWallpapersActivity;
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             urls.addAll(Arrays.asList(MyApplication.myApplication.getResources().getStringArray(R.array.imgUrls)));
 
             Collections.addAll(mode.adapter.dataList,
-                    new ItemMode("临时测试", TestActivity.class),
+                    new ItemMode("StringsPopupWindow测试", StringsPopupWindowTestActivity.class),
                     new ItemMode("自定义TabLayout", TabLayoutTestActivity.class),
                     new ItemMode("自适应Items布局测试", ItemsViewGroupTestActivity.class),
                     new ItemMode("协调布局的简单使用", CoordinatorLayoutTestActivity.class),
