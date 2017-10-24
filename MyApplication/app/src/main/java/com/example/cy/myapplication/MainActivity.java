@@ -23,6 +23,7 @@ import com.example.cy.myapplication.activity.CustomLoadingActivity;
 import com.example.cy.myapplication.activity.DialogFragmentActivity;
 import com.example.cy.myapplication.activity.DrawerLayoutActivity;
 import com.example.cy.myapplication.activity.FragmentAnimActivity;
+import com.example.cy.myapplication.activity.GetApkTestActivity;
 import com.example.cy.myapplication.activity.GifActivity;
 import com.example.cy.myapplication.activity.GoogleMapActivity;
 import com.example.cy.myapplication.activity.GreenDaoActivity;
@@ -113,7 +114,8 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("谷歌地图测试",GoogleMapActivity.class),
                     new ItemMode("联合滑动测试",ScrollTogetherActivity.class),
                     new ItemMode("拖动进度条",SeekBarActivity.class),
-                    new ItemMode("旋转菜单",RotatingMenuActivity.class)
+                    new ItemMode("旋转菜单",RotatingMenuActivity.class),
+                    new ItemMode("获取手机中已经安装的应用的apk安装包",GetApkTestActivity.class)
 
                     // TODO: 2017/7/27 1.qq侧滑
             );
