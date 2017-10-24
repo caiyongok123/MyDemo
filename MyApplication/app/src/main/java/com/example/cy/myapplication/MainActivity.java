@@ -34,6 +34,7 @@ import com.example.cy.myapplication.activity.RotatingMenuActivity;
 import com.example.cy.myapplication.activity.ScrollTogetherActivity;
 import com.example.cy.myapplication.activity.SeekBarActivity;
 import com.example.cy.myapplication.activity.StringsPopupWindowTestActivity;
+import com.example.cy.myapplication.activity.TestActivity;
 import com.example.cy.myapplication.activity.filepath.FilePathActivity;
 import com.example.cy.myapplication.activity.sound.SoundCompoundActivity;
 import com.example.cy.myapplication.activity.wallpapers.LiveWallpapersActivity;
@@ -80,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
             urls.addAll(Arrays.asList(MyApplication.myApplication.getResources().getStringArray(R.array.imgUrls)));
 
             Collections.addAll(mode.adapter.dataList,
+                    new ItemMode("测试", TestActivity.class),
                     new ItemMode("StringsPopupWindow测试", StringsPopupWindowTestActivity.class),
                     new ItemMode("自定义TabLayout", TabLayoutTestActivity.class),
                     new ItemMode("自适应Items布局测试", ItemsViewGroupTestActivity.class),
@@ -87,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("用Fresco和Glide播放Gif图", GifActivity.class),
                     new ItemMode("Fragment转场动画", FragmentAnimActivity.class),
                     new ItemMode("AES加密解密", AesActivity.class),
-                    new ItemMode("RSA加密解密",RsaActivity.class),
+                    new ItemMode("RSA加密解密", RsaActivity.class),
                     new ItemMode("设置电源管理，使后台线程不自动休眠", ThreadActivity.class),
                     new ItemMode("展示系统相册所有图片", ImagesActivity.class),
                     new ItemMode("系统下载器下载安装apk", SystemDownLoadActivity.class),
@@ -105,17 +107,17 @@ public class MainActivity extends AppCompatActivity {
                     new ItemMode("DialogFragment", DialogFragmentActivity.class),
                     new ItemMode("标题栏导航栏背景色设置", BarActivity.class),
                     new ItemMode("像头预览，拍照发送图片到服务器进行识别", CameraPreviewActivity.class),
-                    new ItemMode("自定义动画等待框",CustomLoadingActivity.class),
-                    new ItemMode("二维码扫描",QrScanActivity.class),
-                    new ItemMode("动态壁纸",LiveWallpapersActivity.class),
-                    new ItemMode("获取文件地址",FilePathActivity.class),
-                    new ItemMode("官方侧滑v4.widget.DrawerLayout",DrawerLayoutActivity.class),
-                    new ItemMode("录音功能测试",SoundCompoundActivity.class),
-                    new ItemMode("谷歌地图测试",GoogleMapActivity.class),
-                    new ItemMode("联合滑动测试",ScrollTogetherActivity.class),
-                    new ItemMode("拖动进度条",SeekBarActivity.class),
-                    new ItemMode("旋转菜单",RotatingMenuActivity.class),
-                    new ItemMode("获取手机中已经安装的应用的apk安装包",GetApkTestActivity.class)
+                    new ItemMode("自定义动画等待框", CustomLoadingActivity.class),
+                    new ItemMode("二维码扫描", QrScanActivity.class),
+                    new ItemMode("动态壁纸", LiveWallpapersActivity.class),
+                    new ItemMode("获取文件地址", FilePathActivity.class),
+                    new ItemMode("官方侧滑v4.widget.DrawerLayout", DrawerLayoutActivity.class),
+                    new ItemMode("录音功能测试", SoundCompoundActivity.class),
+                    new ItemMode("谷歌地图测试", GoogleMapActivity.class),
+                    new ItemMode("联合滑动测试", ScrollTogetherActivity.class),
+                    new ItemMode("拖动进度条", SeekBarActivity.class),
+                    new ItemMode("旋转菜单", RotatingMenuActivity.class),
+                    new ItemMode("获取手机中已经安装的应用的apk安装包", GetApkTestActivity.class)
 
                     // TODO: 2017/7/27 1.qq侧滑
             );
@@ -180,7 +182,6 @@ public class MainActivity extends AppCompatActivity {
             return ib.getRoot();
         }
     }
-
 
 
     @Override
