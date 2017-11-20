@@ -5,7 +5,6 @@ import android.databinding.BaseObservable;
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,8 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.cy.common.MyApplication;
+import com.example.cy.common.base.BaseActivity;
 import com.example.cy.myapplication.activity.AesActivity;
 import com.example.cy.myapplication.activity.AnimalUpAndDownActivity;
 import com.example.cy.myapplication.activity.BarActivity;
@@ -56,7 +57,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
@@ -191,6 +192,7 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding amb = DataBindingUtil.setContentView(this, R.layout.activity_main);
         amb.setViewMode(new ViewMode());
 
+        showProgressDialog();showProgressDialog();showProgressDialog();showProgressDialog();dismissProgressDialog();
 
         /*View view = LayoutInflater.from(MyApplication.myApplication).inflate(R.layout.xuanfu,null);
         view.setOnClickListener(new View.OnClickListener() {

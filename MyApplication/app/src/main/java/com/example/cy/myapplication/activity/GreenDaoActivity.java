@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.cy.myapplication.MyApplication;
+import com.example.cy.common.MyApplication;
 import com.example.cy.myapplication.R;
 import com.example.cy.myapplication.entity.User;
 import com.google.gson.Gson;

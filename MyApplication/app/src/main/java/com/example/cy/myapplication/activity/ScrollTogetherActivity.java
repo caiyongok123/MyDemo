@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.cy.myapplication.MyApplication;
+import com.example.cy.common.MyApplication;
 import com.example.cy.myapplication.R;
 import com.example.cy.myapplication.widget.view.MyScrollView;
 import com.example.cy.myapplication.widget.view.customloading.MyHorizontalScrollView;

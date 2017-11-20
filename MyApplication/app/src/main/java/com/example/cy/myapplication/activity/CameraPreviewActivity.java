@@ -8,7 +8,7 @@ import android.view.SurfaceView;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.cy.myapplication.MyApplication;
+import com.example.cy.common.MyApplication;
 import com.example.cy.myapplication.R;
 
 import java.io.BufferedReader;

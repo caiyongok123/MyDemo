@@ -1,4 +1,4 @@
-package com.example.cy.myapplication;
+package com.example.cy.common;
 
 import android.app.Application;
 
@@ -7,7 +7,6 @@ import com.example.cy.myapplication.entity.DaoSession;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cookie.store.PersistentCookieStore;
-import com.umeng.analytics.MobclickAgent;
 
 /**
  * Created by cy on 2017/3/18.

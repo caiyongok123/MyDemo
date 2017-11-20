@@ -1,13 +1,12 @@
 package com.example.cy.myapplication.util;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.widget.Toast;
 
-import com.example.cy.myapplication.MyApplication;
+import com.example.cy.common.MyApplication;
 
 /**
  * Created by cy on 2017/8/28.
