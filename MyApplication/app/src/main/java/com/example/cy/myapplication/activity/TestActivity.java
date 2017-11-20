@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.example.cy.common.base.BaseActivity;
 import com.example.cy.myapplication.R;
@@ -53,5 +54,15 @@ public class TestActivity extends BaseActivity {
         public void onReceive(Context context, Intent intent) {
             
         }
+    }
+
+    @Override
+    public void onBackClick() {
+        Toast.makeText(mContext,"Back",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onRightClick() {
+        Toast.makeText(mContext,"Right",Toast.LENGTH_LONG).show();
     }
 }
