@@ -11,6 +11,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
@@ -48,6 +50,30 @@ public class BaseActivity extends AppCompatActivity implements TitleBar.OnTitleB
         adaptTheme(true);
         StatusBarLightMode(this);
 
+    }
+
+    @Override
+    public void setContentView(int layoutResID) {
+        super.setContentView(layoutResID);
+        setFitsSystemWindows(true);
+    }
+
+    public void setContentView(int layoutResID,boolean isFitsSystemWindows) {
+        super.setContentView(layoutResID);
+        setFitsSystemWindows(isFitsSystemWindows);
+    }
+
+    /**
+     * 设置布局内容和状态栏不重合
+     * @param fitsSystemWindows
+     */
+    public void setFitsSystemWindows(boolean fitsSystemWindows){
+        ViewGroup contentFrameLayout = (ViewGroup) findViewById(Window.ID_ANDROID_CONTENT);
+        View parentView = contentFrameLayout.getChildAt(0);
+
+        if (parentView != null && Build.VERSION.SDK_INT >= 14) {
+            parentView.setFitsSystemWindows(fitsSystemWindows);
+        }
     }
 
     @Override
