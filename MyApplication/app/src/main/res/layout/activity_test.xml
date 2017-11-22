@@ -10,11 +10,12 @@
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:rightDrawable="@drawable/bg"
         app:rightText="555"
         app:titleText="Main" />
 
-    <RelativeLayout
-
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.example.cy.myapplication.activity.TestActivity">
@@ -32,6 +33,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>
 
