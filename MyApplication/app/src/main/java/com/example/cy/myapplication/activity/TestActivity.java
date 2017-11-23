@@ -7,32 +7,21 @@ import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.cy.common.base.BaseActivity;
 import com.example.cy.myapplication.R;
-import com.example.cy.myapplication.util.ToastUtil;
 
 import java.util.ArrayList;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class TestActivity extends BaseActivity {
 
     ListFragment lf;
-    @Bind(R.id.bt_up)
-    Button btUp;
-    @Bind(R.id.bt_down)
-    Button btDown;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        ButterKnife.bind(this);
 
         lf = (ListFragment) getSupportFragmentManager().findFragmentById(R.id.lf);
         lf.setListAdapter(new ArrayAdapter<String>(TestActivity.this, android.R.layout.simple_list_item_1, new ArrayList<String>() {{
