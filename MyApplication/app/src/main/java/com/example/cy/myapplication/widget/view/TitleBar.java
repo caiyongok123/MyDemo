@@ -69,8 +69,10 @@ public class TitleBar extends LinearLayout {
 
         if (rightDrawable != null) {
             ivRight.setImageDrawable(rightDrawable);
+            ivRight.setVisibility(VISIBLE);
         } else if (!TextUtils.isEmpty(rightText)) {
             tvRight.setText(rightText);
+            tvRight.setVisibility(VISIBLE);
         }
     }
 
