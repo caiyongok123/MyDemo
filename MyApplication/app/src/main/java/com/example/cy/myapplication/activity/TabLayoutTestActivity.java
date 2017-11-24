@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.TabLayout.Tab;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cy.myapplication.R;
@@ -23,6 +24,7 @@ public class TabLayoutTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tablayout_test);
         ButterKnife.bind(this);
+
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -51,6 +53,7 @@ public class TabLayoutTestActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
 }
