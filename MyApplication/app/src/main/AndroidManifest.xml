@@ -140,7 +140,8 @@
         <activity android:name=".activity.StringsPopupWindowTestActivity" />
         <activity android:name=".activity.GetApkTestActivity" />
         <activity android:name=".activity.TestActivity" />
-        <activity android:name=".activity.PhotoViewActivity"></activity>
+        <activity android:name=".activity.PhotoViewActivity" />
+        <activity android:name=".activity.WqgalleryTestActivity"></activity>
     </application>
 
 </manifest>

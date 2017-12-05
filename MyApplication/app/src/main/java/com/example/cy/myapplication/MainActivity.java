@@ -37,6 +37,7 @@ import com.example.cy.myapplication.activity.ScrollTogetherActivity;
 import com.example.cy.myapplication.activity.SeekBarActivity;
 import com.example.cy.myapplication.activity.StringsPopupWindowTestActivity;
 import com.example.cy.myapplication.activity.TestActivity;
+import com.example.cy.myapplication.activity.WqgalleryTestActivity;
 import com.example.cy.myapplication.activity.filepath.FilePathActivity;
 import com.example.cy.myapplication.activity.sound.SoundCompoundActivity;
 import com.example.cy.myapplication.activity.wallpapers.LiveWallpapersActivity;
@@ -120,8 +121,8 @@ public class MainActivity extends BaseActivity {
                     new ItemMode("拖动进度条", SeekBarActivity.class),
                     new ItemMode("旋转菜单", RotatingMenuActivity.class),
                     new ItemMode("获取手机中已经安装的应用的apk安装包", GetApkTestActivity.class),
-                    new ItemMode("github开源库PhotoView图片查看（继承自ImageView，支持缩放，以及各种手势的监听）", PhotoViewActivity.class)
-
+                    new ItemMode("github开源库PhotoView图片查看（继承自ImageView，支持缩放，以及各种手势的监听）", PhotoViewActivity.class),
+                    new ItemMode("知乎框架  和  微信样式相册选择器（wqgallery开源库）", WqgalleryTestActivity.class)
                     // TODO: 2017/7/27 1.qq侧滑
             );
 
