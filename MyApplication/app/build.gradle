@@ -104,5 +104,6 @@ dependencies {
     compile 'fm.jiecao:jiecaovideoplayer:2.0'
     compile 'com.github.PhilJay:MPAndroidChart:+'
     compile 'com.google.android.gms:play-services-maps:10.2.1'
+    compile 'com.github.chrisbanes:PhotoView:2.1.3'
     testCompile 'junit:junit:4.12'
 }

@@ -31,6 +31,7 @@ import com.example.cy.myapplication.activity.GreenDaoActivity;
 import com.example.cy.myapplication.activity.ImagesActivity;
 import com.example.cy.myapplication.activity.ItemsViewGroupTestActivity;
 import com.example.cy.myapplication.activity.JiecaoActivity;
+import com.example.cy.myapplication.activity.PhotoViewActivity;
 import com.example.cy.myapplication.activity.RotatingMenuActivity;
 import com.example.cy.myapplication.activity.ScrollTogetherActivity;
 import com.example.cy.myapplication.activity.SeekBarActivity;
@@ -118,7 +119,8 @@ public class MainActivity extends BaseActivity {
                     new ItemMode("联合滑动测试", ScrollTogetherActivity.class),
                     new ItemMode("拖动进度条", SeekBarActivity.class),
                     new ItemMode("旋转菜单", RotatingMenuActivity.class),
-                    new ItemMode("获取手机中已经安装的应用的apk安装包", GetApkTestActivity.class)
+                    new ItemMode("获取手机中已经安装的应用的apk安装包", GetApkTestActivity.class),
+                    new ItemMode("github开源库PhotoView图片查看（继承自ImageView，支持缩放，以及各种手势的监听）", PhotoViewActivity.class)
 
                     // TODO: 2017/7/27 1.qq侧滑
             );
