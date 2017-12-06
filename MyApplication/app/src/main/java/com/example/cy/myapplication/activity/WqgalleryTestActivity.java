@@ -6,14 +6,17 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cy.common.base.BaseActivity;
 import com.example.cy.myapplication.R;
+import com.example.cy.myapplication.util.CommonUtil;
 import com.google.gson.Gson;
 import com.wq.photo.widget.PickConfig;
 import com.yalantis.ucrop.UCrop;
@@ -24,6 +27,7 @@ import com.zhihu.matisse.filter.Filter;
 import com.zhihu.matisse.internal.entity.Item;
 import com.zhihu.matisse.internal.utils.PhotoMetadataUtils;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -38,6 +42,8 @@ public class WqgalleryTestActivity extends BaseActivity {
     int REQUEST_CODE_CHOOSE = 2;
 
 
+    @Bind(R.id.iv)
+    ImageView iv;
     @Bind(R.id.bt_choose)
     Button btChoose;
     @Bind(R.id.tv)
@@ -63,7 +69,8 @@ public class WqgalleryTestActivity extends BaseActivity {
         }
         if (requestCode == REQUEST_CODE_CHOOSE && resultCode == RESULT_OK) {
             List<Uri> list = Matisse.obtainResult(data);
-            tv.setText(new Gson().toJson(list));
+            tv.setText(CommonUtil.getPathByUri(list.get(0))+" \n\n "+new File(CommonUtil.getPathByUri(list.get(0))).length());
+            iv.setImageDrawable(new BitmapDrawable(CommonUtil.getPathByUri(list.get(0))));
 
         }
     }
