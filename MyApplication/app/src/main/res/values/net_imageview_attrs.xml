@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NetImageView">
+
+        <attr name="url" format="string"/>
+        <attr name="placeholderResourceId" format="reference"/>
+        <attr name="errorResourceId" format="reference"/>
+
+    </declare-styleable>
+</resources>
