@@ -14,32 +14,27 @@
         app:rightText="555"
         app:titleText="Main" />
 
-    <com.example.cy.myapplication.widget.view.NetImageView
-        app:url="http://img1.cfw.cn/editors/attached/image/20170303/20170303105634743474.gif"
-        app:placeholderResourceId="@drawable/icon_sel"
-        app:errorResourceId="@drawable/ic_launcher"
-        android:layout_width="200dp"
-        android:layout_height="200dp" />
 
-    <LinearLayout
-        android:orientation="vertical"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.cy.myapplication.activity.TestActivity">
+        android:background="#000"
+        android:overScrollMode="never"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:scrollbars="none"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
-        <Button
-            android:id="@+id/bt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="发送通知" />
-
-
-        <fragment
-            android:id="@+id/lf"
-            android:name="android.support.v4.app.ListFragment"
+    <!--<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+    </ScrollView>-->
 
-    </LinearLayout>
+
 </LinearLayout>
 

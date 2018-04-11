@@ -130,6 +130,8 @@ public class MainActivity extends BaseActivity {
             lv.setAdapter(mode.adapter);
 
             MobclickAgent.reportError(MyApplication.myApplication, "123123123123123123123123123123123123123");
+
+
         }
     }
 
@@ -195,7 +197,7 @@ public class MainActivity extends BaseActivity {
         ActivityMainBinding amb = DataBindingUtil.setContentView(this, R.layout.activity_main);
         amb.setViewMode(new ViewMode());
 
-        showProgressDialog();showProgressDialog();showProgressDialog();showProgressDialog();dismissProgressDialog();
+
 
         /*View view = LayoutInflater.from(MyApplication.myApplication).inflate(R.layout.xuanfu,null);
         view.setOnClickListener(new View.OnClickListener() {
