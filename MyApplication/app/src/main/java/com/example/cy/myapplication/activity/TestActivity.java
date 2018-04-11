@@ -1,9 +1,12 @@
 package com.example.cy.myapplication.activity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -103,9 +106,41 @@ public class TestActivity extends BaseActivity {
                 }
             };
             recyclerView.setAdapter(adapter);
-            adapter.addData(strings);
 
+            recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                @Override
+                public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                    super.onScrollStateChanged(recyclerView, newState);
+                    if(recyclerView.getLayoutManager() != null) {
+                        LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+                        //获取可视的第一个view
+                        View topView = layoutManager.getChildAt(0);
+                        if(topView != null) {
+                            //获取与该view的顶部的偏移量
+                            int lastOffset = topView.getTop();
+                            //得到该View的数组位置
+                            int lastPosition = layoutManager.getPosition(topView);
+
+                            SharedPreferences sp = getSharedPreferences("note",MODE_PRIVATE);
+                            sp.edit().putInt("lastOffset",lastOffset).commit();
+                            sp.edit().putInt("lastPosition",lastPosition).commit();
+
+                        }
+                    }
+                }
+            });
+
+
+            adapter.addData(strings);
             Log.e("xxxxxxxx", strings.size() + "");
+
+            SharedPreferences sp = getSharedPreferences("note",MODE_PRIVATE);
+            //得到该View的数组位置
+            int lastPosition = sp.getInt("lastOffset",0);
+            int lastOffset = sp.getInt("lastOffset",0);
+            if(recyclerView.getLayoutManager() != null && lastPosition >= 0) {
+                ((LinearLayoutManager) recyclerView.getLayoutManager()).scrollToPositionWithOffset(lastPosition, lastOffset);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -113,38 +148,9 @@ public class TestActivity extends BaseActivity {
 
     }
 
-    /**
-     * 半角转换为全角
-     *
-     * @param input
-     * @return
-     */
-    public static String toDBC(String input) {
-        char[] c = input.toCharArray();
-        for (int i = 0; i < c.length; i++) {
-            if (c[i] == 12288) {
-                c[i] = (char) 32;
-                continue;
-            }
-            if (c[i] > 65280 && c[i] < 65375)
-                c[i] = (char) (c[i] - 65248);
-        }
-        return new String(c);
-    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
 
-
-    /**
-     * 去除特殊字符或将所有中文标号替换为英文标号
-     *
-     * @param str
-     * @return
-     */
-    public static String stringFilter(String str) {
-        str = str.replaceAll("【", "[").replaceAll("】", "]")
-                .replaceAll("！", "!").replaceAll("：", ":");// 替换中文标号  
-        String regEx = "[『』]"; // 清除掉特殊字符  
-        Pattern p = Pattern.compile(regEx);
-        Matcher m = p.matcher(str);
-        return m.replaceAll("").trim();
     }
 }
