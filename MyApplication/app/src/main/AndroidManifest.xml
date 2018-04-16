@@ -139,7 +139,7 @@
         <activity android:name=".activity.RotatingMenuActivity" />
         <activity android:name=".activity.StringsPopupWindowTestActivity" />
         <activity android:name=".activity.GetApkTestActivity" />
-        <activity android:name=".activity.TestActivity" />
+        <activity android:name=".activity.XiaoshuoActivity" />
         <activity android:name=".activity.PhotoViewActivity" />
         <activity android:name=".activity.WqgalleryTestActivity"></activity>
     </application>

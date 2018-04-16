@@ -36,7 +36,7 @@ import com.example.cy.myapplication.activity.RotatingMenuActivity;
 import com.example.cy.myapplication.activity.ScrollTogetherActivity;
 import com.example.cy.myapplication.activity.SeekBarActivity;
 import com.example.cy.myapplication.activity.StringsPopupWindowTestActivity;
-import com.example.cy.myapplication.activity.TestActivity;
+import com.example.cy.myapplication.activity.XiaoshuoActivity;
 import com.example.cy.myapplication.activity.WqgalleryTestActivity;
 import com.example.cy.myapplication.activity.filepath.FilePathActivity;
 import com.example.cy.myapplication.activity.sound.SoundCompoundActivity;
@@ -84,7 +84,7 @@ public class MainActivity extends BaseActivity {
             urls.addAll(Arrays.asList(MyApplication.myApplication.getResources().getStringArray(R.array.imgUrls)));
 
             Collections.addAll(mode.adapter.dataList,
-                    new ItemMode("测试", TestActivity.class),
+                    new ItemMode("长文件txt小说的显示，文件编码格式的识别", XiaoshuoActivity.class),
                     new ItemMode("StringsPopupWindow测试", StringsPopupWindowTestActivity.class),
                     new ItemMode("自定义TabLayout", TabLayoutTestActivity.class),
                     new ItemMode("自适应Items布局测试", ItemsViewGroupTestActivity.class),

@@ -20,13 +20,16 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class TestActivity extends BaseActivity {
+
+/**
+ * 长文件txt小说的显示，这里包括对文件编码格式的识别
+ */
+
+public class XiaoshuoActivity extends BaseActivity {
 
 
     @Bind(R.id.titleBar)
@@ -42,10 +45,10 @@ public class TestActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_xiaoshuo);
         ButterKnife.bind(this);
 
-        String path = Environment.getExternalStorageDirectory() + "/ppa.txt";//ppa_utf-8.txt//ppa
+        String path = Environment.getExternalStorageDirectory() + "/北斗帝尊.txt";//ppa_utf-8.txt//ppa
         File file = new File(path);
 
         String code = "US-ASCII";
@@ -99,7 +102,7 @@ public class TestActivity extends BaseActivity {
             strings.add("\n"+sb.toString());
 
 
-            BaseQuickAdapter adapter = new BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_text) {
+            BaseQuickAdapter adapter = new BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_text,strings) {
                 @Override
                 protected void convert(BaseViewHolder baseViewHolder, String s) {
                     baseViewHolder.setText(R.id.tv_item, s);
@@ -122,6 +125,7 @@ public class TestActivity extends BaseActivity {
                             int lastPosition = layoutManager.getPosition(topView);
 
                             SharedPreferences sp = getSharedPreferences("note",MODE_PRIVATE);
+                            Log.e("pppppppp","放入lastPosition=="+lastPosition+",lastOffset= " +lastOffset);
                             sp.edit().putInt("lastOffset",lastOffset).commit();
                             sp.edit().putInt("lastPosition",lastPosition).commit();
 
@@ -131,16 +135,23 @@ public class TestActivity extends BaseActivity {
             });
 
 
-            adapter.addData(strings);
-            Log.e("xxxxxxxx", strings.size() + "");
 
-            SharedPreferences sp = getSharedPreferences("note",MODE_PRIVATE);
-            //得到该View的数组位置
-            int lastPosition = sp.getInt("lastOffset",0);
-            int lastOffset = sp.getInt("lastOffset",0);
-            if(recyclerView.getLayoutManager() != null && lastPosition >= 0) {
-                ((LinearLayoutManager) recyclerView.getLayoutManager()).scrollToPositionWithOffset(lastPosition, lastOffset);
-            }
+
+            /*new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {*/
+                    SharedPreferences sp = getSharedPreferences("note",MODE_PRIVATE);
+                    //得到该View的数组位置
+                    int lastPosition = sp.getInt("lastPosition",0);
+                    int lastOffset = sp.getInt("lastOffset",0);
+                    Log.e("pppppppp","取出lastPosition=="+lastPosition+",lastOffset= " +lastOffset);
+                    if(recyclerView.getLayoutManager() != null && lastPosition >= 0) {
+                        ((LinearLayoutManager) recyclerView.getLayoutManager()).scrollToPositionWithOffset(lastPosition, lastOffset);
+                    }
+               /* }
+            },200);*/
+
+
 
         } catch (Exception e) {
             e.printStackTrace();
