@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.cy.myapplication.activity.CameraViewTestActivity">
+
+
+    <com.example.cy.myapplication.widget.view.cameraview.CameraView
+        android:id="@+id/cv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
+    <Button
+        android:id="@+id/bt_takePicture"
+        android:text="拍照"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+
+    <Button
+        android:id="@+id/bt_start"
+        android:layout_marginTop="150dp"
+        android:text="开始录像"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+
+    <Button
+        android:id="@+id/bt_stop"
+        android:layout_marginTop="300dp"
+        android:text="停止录像"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+
+</RelativeLayout>

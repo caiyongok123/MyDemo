@@ -19,6 +19,7 @@ import com.example.cy.myapplication.activity.AnimalUpAndDownActivity;
 import com.example.cy.myapplication.activity.BarActivity;
 import com.example.cy.myapplication.activity.CalendarActivity;
 import com.example.cy.myapplication.activity.CameraPreviewActivity;
+import com.example.cy.myapplication.activity.CameraViewTestActivity;
 import com.example.cy.myapplication.activity.CoordinatorLayoutTestActivity;
 import com.example.cy.myapplication.activity.CustomLoadingActivity;
 import com.example.cy.myapplication.activity.DialogFragmentActivity;
@@ -84,6 +85,7 @@ public class MainActivity extends BaseActivity {
             urls.addAll(Arrays.asList(MyApplication.myApplication.getResources().getStringArray(R.array.imgUrls)));
 
             Collections.addAll(mode.adapter.dataList,
+                    new ItemMode("CameraView测试", CameraViewTestActivity.class),
                     new ItemMode("长文件txt小说的显示，文件编码格式的识别", XiaoshuoActivity.class),
                     new ItemMode("StringsPopupWindow测试", StringsPopupWindowTestActivity.class),
                     new ItemMode("自定义TabLayout", TabLayoutTestActivity.class),
@@ -130,6 +132,7 @@ public class MainActivity extends BaseActivity {
             lv.setAdapter(mode.adapter);
 
             MobclickAgent.reportError(MyApplication.myApplication, "123123123123123123123123123123123123123");
+
 
 
         }

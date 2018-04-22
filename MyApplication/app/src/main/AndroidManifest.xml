@@ -141,7 +141,8 @@
         <activity android:name=".activity.GetApkTestActivity" />
         <activity android:name=".activity.XiaoshuoActivity" />
         <activity android:name=".activity.PhotoViewActivity" />
-        <activity android:name=".activity.WqgalleryTestActivity"></activity>
+        <activity android:name=".activity.WqgalleryTestActivity" />
+        <activity android:name=".activity.CameraViewTestActivity"></activity>
     </application>
 
 </manifest>

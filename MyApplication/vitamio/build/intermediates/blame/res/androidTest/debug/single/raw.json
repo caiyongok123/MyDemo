@@ -1,5 +1,9 @@
 [
     {
+        "merged": "F:\\github\\MyDemo\\MyApplication\\vitamio\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\libarm.so",
+        "source": "F:\\github\\MyDemo\\MyApplication\\vitamio\\build\\intermediates\\bundles\\debug\\res\\raw\\libarm.so"
+    },
+    {
         "merged": "E:\\gitFiles\\MyDemo\\MyApplication\\vitamio\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\libarm.so",
         "source": "E:\\gitFiles\\MyDemo\\MyApplication\\vitamio\\build\\intermediates\\bundles\\debug\\res\\raw\\libarm.so"
     }
