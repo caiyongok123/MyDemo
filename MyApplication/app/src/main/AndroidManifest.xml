@@ -42,6 +42,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+
+        <service android:name="cn.jpush.android.service.PushService"
+            android:process=":multiprocess"
+            tools:node="replace" >
+
+        </service>
+
+
         <!-- 谷歌地图 -->
         <meta-data
             android:name="com.google.android.gms.version"
@@ -142,7 +150,8 @@
         <activity android:name=".activity.XiaoshuoActivity" />
         <activity android:name=".activity.PhotoViewActivity" />
         <activity android:name=".activity.WqgalleryTestActivity" />
-        <activity android:name=".activity.CameraViewTestActivity"></activity>
+        <activity android:name=".activity.CameraViewTestActivity" />
+        <activity android:name=".activity.JPushTestActivity"></activity>
     </application>
 
 </manifest>
