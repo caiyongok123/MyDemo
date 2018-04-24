@@ -34,17 +34,20 @@ public class CameraViewTestActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.bt_takePicture, R.id.bt_start, R.id.bt_stop})
+    @OnClick({R.id.bt_takePicture, R.id.bt_start, R.id.bt_stop, R.id.bt_switch})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt_takePicture:
-                cv.takePicture(Environment.getExternalStorageDirectory() + "/ppa" + System.currentTimeMillis() + ".jpg",true);
+                cv.takePicture(Environment.getExternalStorageDirectory() + "/ppa" + System.currentTimeMillis() + ".jpg", true);
                 break;
             case R.id.bt_start:
                 cv.startRecorderMp4(Environment.getExternalStorageDirectory() + "/ppa" + System.currentTimeMillis() + ".MP4");
                 break;
             case R.id.bt_stop:
                 cv.stopRecorderMp4();
+                break;
+            case R.id.bt_switch:
+                cv.switchCamera();
                 break;
         }
     }

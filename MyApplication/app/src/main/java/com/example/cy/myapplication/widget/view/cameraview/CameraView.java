@@ -32,6 +32,8 @@ import java.util.List;
 
 public class CameraView extends SurfaceView {
 
+    int cameraId = Camera.CameraInfo.CAMERA_FACING_BACK;
+
     Camera mCamera;
     SurfaceHolder surfaceHolder;
 
@@ -50,7 +52,7 @@ public class CameraView extends SurfaceView {
         surfaceHolder.addCallback(new SurfaceHolder.Callback() {
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
-                mCamera = Camera.open();
+                mCamera = Camera.open(cameraId);
                 try {
                     mCamera.setPreviewDisplay(surfaceHolder);
                 } catch (IOException e) {
@@ -87,6 +89,44 @@ public class CameraView extends SurfaceView {
                 return false;
             }
         });
+    }
+
+
+    public void switchCamera() {
+
+        if (Camera.getNumberOfCameras() < 2) {
+            return;
+        }
+
+        if (cameraId == Camera.CameraInfo.CAMERA_FACING_BACK) {
+            //后置摄像头
+            cameraId = Camera.CameraInfo.CAMERA_FACING_FRONT;
+        } else {  // 前置摄像头
+            cameraId = Camera.CameraInfo.CAMERA_FACING_BACK;
+        }
+
+        mCamera.stopPreview();//停掉原来摄像头的预览
+        mCamera.release();//释放资源
+        mCamera = null;//取消原来摄像头
+        mCamera = Camera.open(cameraId);//打开当前选中的摄像头
+        try {
+            Camera.Parameters parameters = mCamera.getParameters();
+            List<Camera.Size> SupportedPreviewSizes = parameters.getSupportedPreviewSizes();// 获取支持预览照片的尺寸
+            Camera.Size previewSize = SupportedPreviewSizes.get(0);// 从List取出Size
+            parameters.setPreviewSize(previewSize.width, previewSize.height);//
+            //设置预览照片的大小
+            List<Camera.Size> supportedPictureSizes = parameters.getSupportedPictureSizes();// 获取支持保存图片的尺寸
+            Camera.Size pictureSize = supportedPictureSizes.get(0);// 从List取出Size
+            parameters.setPictureSize(pictureSize.width, pictureSize.height);//
+            //设置照片的大小
+            mCamera.setParameters(parameters);
+
+            mCamera.setPreviewDisplay(surfaceHolder);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mCamera.setDisplayOrientation(90);
+        mCamera.startPreview();
     }
 
 
@@ -187,7 +227,11 @@ public class CameraView extends SurfaceView {
                     os.write(data);
                     os.close();
                     ExifInterface exifInterface = new ExifInterface(filePath);
-                    exifInterface.setAttribute(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_ROTATE_90 + "");
+                    if (cameraId == Camera.CameraInfo.CAMERA_FACING_BACK) {//后置摄像头的拍照要旋转90度
+                        exifInterface.setAttribute(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_ROTATE_90 + "");
+                    } else {
+                        exifInterface.setAttribute(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_ROTATE_270 + "");
+                    }
                     exifInterface.saveAttributes();
 
                 } catch (IOException e) {
@@ -333,10 +377,15 @@ public class CameraView extends SurfaceView {
         mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
 
         //设置选择角度，顺时针方向，因为默认是逆向90度的，这样图像就是正常显示了,这里设置的是观看保存后的视频的角度
-        mMediaRecorder.setOrientationHint(90);
-        //设置录像的分辨率
-        mMediaRecorder.setVideoSize(352, 288);
+        if (cameraId == Camera.CameraInfo.CAMERA_FACING_BACK){
+            mMediaRecorder.setOrientationHint(90);
+        }else {
+            mMediaRecorder.setOrientationHint(270);
+        }
 
+        //设置录像的分辨率
+        //mMediaRecorder.setVideoSize(352, 288);
+        mMediaRecorder.setVideoSize(640, 480);
     }
 
 }
