@@ -18,6 +18,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+
+
         <Button
             android:id="@+id/bt_takePicture"
             android:text="拍照"
@@ -45,6 +48,14 @@
             android:id="@+id/bt_switch"
             android:layout_marginTop="10dp"
             android:text="切换摄像头"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+
+        <Button
+            android:id="@+id/bt_sys"
+            android:text="体统录制"
+            android:layout_marginTop="10dp"
             android:layout_width="100dp"
             android:layout_height="100dp" />
     </LinearLayout>

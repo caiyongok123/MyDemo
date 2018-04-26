@@ -72,7 +72,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        MobclickAgent.onPause(this);;;
+        MobclickAgent.onPause(this);
     }
 
     public static class ViewMode {
