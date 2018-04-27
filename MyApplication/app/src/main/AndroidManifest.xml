@@ -7,6 +7,8 @@
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
@@ -41,14 +43,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-        <service android:name="cn.jpush.android.service.PushService"
+        <service
+            android:name="cn.jpush.android.service.PushService"
             android:process=":multiprocess"
-            tools:node="replace" >
-
-        </service>
-
+            tools:node="replace"></service>
 
         <!-- 谷歌地图 -->
         <meta-data
@@ -151,7 +149,8 @@
         <activity android:name=".activity.PhotoViewActivity" />
         <activity android:name=".activity.WqgalleryTestActivity" />
         <activity android:name=".activity.CameraViewTestActivity" />
-        <activity android:name=".activity.JPushTestActivity"></activity>
+        <activity android:name=".activity.JPushTestActivity" />
+        <activity android:name=".activity.BluetoothTestActivity"></activity>
     </application>
 
 </manifest>
