@@ -46,7 +46,7 @@ public class CameraViewTestActivity extends AppCompatActivity {
                 cv.takePicture(Environment.getExternalStorageDirectory() + "/ppa" + System.currentTimeMillis() + ".jpg", true);
                 break;
             case R.id.bt_start:
-                cv.startRecorderMp4(Environment.getExternalStorageDirectory() + "/ppa" + System.currentTimeMillis() + ".MP4");
+                cv.startRecorderMp4(Environment.getExternalStorageDirectory() + "/ppa" + System.currentTimeMillis() + ".mp4");
                 break;
             case R.id.bt_stop:
                 cv.stopRecorderMp4();
@@ -58,7 +58,7 @@ public class CameraViewTestActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setAction("android.media.action.VIDEO_CAPTURE");
                 intent.addCategory("android.intent.category.DEFAULT");
-                File file = new File(Environment.getExternalStorageDirectory() + "/ppa_sys" + System.currentTimeMillis() + ".MP4");
+                File file = new File(Environment.getExternalStorageDirectory() + "/ppa_sys" + System.currentTimeMillis() + ".mp4");
                 if (file.exists()) {
                     file.delete();
                 }

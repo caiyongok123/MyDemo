@@ -2,7 +2,9 @@ package com.example.cy.myapplication.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.cy.myapplication.R;
 import com.example.cy.myapplication.widget.view.RotatingMenuLayout;
 
@@ -26,5 +28,6 @@ public class RotatingMenuActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         rml.setItemList(new ArrayList(){{add("");add("");add("");add("");add("");add("");}});
+
     }
 }
