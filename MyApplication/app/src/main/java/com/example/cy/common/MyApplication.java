@@ -2,7 +2,6 @@ package com.example.cy.common;
 
 import android.app.Application;
 
-import com.example.cy.myapplication.BuildConfig;
 import com.example.cy.myapplication.entity.DaoMaster;
 import com.example.cy.myapplication.entity.DaoSession;
 import com.facebook.drawee.backends.pipeline.Fresco;

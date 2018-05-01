@@ -1,6 +1,7 @@
 package com.example.cy.myapplication.activity.qrscan;
 
 import android.animation.ObjectAnimator;
+import android.graphics.BitmapFactory;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -118,7 +119,8 @@ public class QrScanActivity extends AppCompatActivity {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            final String string = QrDecoder.decode(data1,camera.getParameters().getPreviewSize().width,camera.getParameters().getPreviewSize().height,ll.getWidth());
+                            final String string = QrDecoder.decodeByZXing(data1,camera.getParameters().getPreviewSize().width,camera.getParameters().getPreviewSize().height,ll.getWidth());
+                            //final String string = QrDecoder.decode(data1,camera.getParameters().getPreviewSize().width,camera.getParameters().getPreviewSize().height,ll.getWidth());
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
