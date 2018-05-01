@@ -34,7 +34,7 @@ public class QrDecoder {
      * 用Zbar扫描
      */
 
-    public static String decode(byte[] data,int w,int h,int size) {
+    public static String decodeByZbar(byte[] data,int w,int h,int size) {
         ImageScanner mScanner = new ImageScanner();
         mScanner.setConfig(0, Config.X_DENSITY, 3);
         mScanner.setConfig(0, Config.Y_DENSITY, 3);
@@ -60,7 +60,41 @@ public class QrDecoder {
         return null;
     }
 
+    public static String decodeByZXing(Bitmap bitmap){
+        MultiFormatReader multiFormatReader = new MultiFormatReader();
 
+        // 解码的参数
+        Hashtable<DecodeHintType, Object> hints = new Hashtable<DecodeHintType, Object>(2);
+        // 可以解析的编码类型
+        Vector<BarcodeFormat> decodeFormats = new Vector<BarcodeFormat>();
+        if (decodeFormats == null || decodeFormats.isEmpty()) {
+            decodeFormats = new Vector<BarcodeFormat>();
+
+            // 这里设置可扫描的类型，我这里选择了都支持
+            decodeFormats.addAll(MyDecodeFormatManager.ONE_D_FORMATS);
+            decodeFormats.addAll(MyDecodeFormatManager.QR_CODE_FORMATS);
+            decodeFormats.addAll(MyDecodeFormatManager.DATA_MATRIX_FORMATS);
+        }
+        hints.put(DecodeHintType.POSSIBLE_FORMATS, decodeFormats);
+        // 设置继续的字符编码格式为UTF8
+        // hints.put(DecodeHintType.CHARACTER_SET, "UTF8");
+        // 设置解析配置参数
+        multiFormatReader.setHints(hints);
+
+        // 开始对图像资源解码
+        Result rawResult = null;
+        try {
+            rawResult = multiFormatReader.decodeWithState(new BinaryBitmap(new HybridBinarizer(new BitmapLuminanceSource(bitmap))));
+            try {
+                bitmap.recycle();
+                bitmap=null;
+            }catch (Exception e){}
+            return rawResult.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     public static String decodeByZXing(byte[] data,int w,int h,int size){
 
         ByteArrayOutputStream baos;
@@ -115,25 +149,5 @@ public class QrDecoder {
             e.printStackTrace();
             return null;
         }
-
-
-        /*try {
-            Bitmap bp = BitmapFactory.decodeByteArray(data,w,h);
-            bp = Bitmap.createBitmap(bp,(w-size)/2,(h-size)/2,size,size);
-
-
-            LuminanceSource source = new BitmapLuance(bp);
-            Binarizer binarizer = new HybridBinarizer(source);
-            BinaryBitmap binaryBitmap = new BinaryBitmap(binarizer);
-            Map<DecodeHintType, Object> hints = new HashMap<DecodeHintType, Object>();
-            hints.put(DecodeHintType.CHARACTER_SET, "UTF-8");
-            Result result = new MultiFormatReader().decode(binaryBitmap, hints);// 对图像进行解码
-            return result.getText();
-        }catch (Exception e){
-            e.printStackTrace();
-            Log.e("zxing二维码解析错误",e.getMessage());
-            return null;
-        }*/
-
     }
 }
