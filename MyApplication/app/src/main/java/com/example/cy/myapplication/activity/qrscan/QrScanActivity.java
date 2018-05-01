@@ -124,9 +124,9 @@ public class QrScanActivity extends AppCompatActivity {
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    if (!TextUtils.isEmpty(string)) {
+                                    //if (!TextUtils.isEmpty(string)) {
                                         resultString = string;
-                                    }
+                                    //}
                                     startScan();
                                 }
                             });
