@@ -6,6 +6,7 @@ import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.ImageView;
@@ -13,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.cy.myapplication.R;
+import com.example.cy.myapplication.util.ToastUtil;
 
 import java.io.IOException;
 
@@ -39,7 +41,8 @@ public class QrScanActivity extends AppCompatActivity {
      * 扫描成功了，这里就不会继续扫了，结果已经拿到了
      */
     private void onSanResult(String resultStr) {
-        Toast.makeText(this, resultStr, Toast.LENGTH_LONG).show();
+        Log.e("打印：",resultStr+">>");
+        ToastUtil.showText(resultStr);
     }
 
     @Override
@@ -51,6 +54,8 @@ public class QrScanActivity extends AppCompatActivity {
         init();
 
         startAnim();
+
+
 
     }
 

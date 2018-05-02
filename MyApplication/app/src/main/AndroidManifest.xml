@@ -150,6 +150,7 @@
         <activity android:name=".activity.CameraViewTestActivity" />
         <activity android:name=".activity.JPushTestActivity" />
         <activity android:name=".activity.BluetoothTestActivity" />
+        <activity android:name=".activity.QrCreateActivity"></activity>
     </application>
 
 </manifest>

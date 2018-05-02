@@ -35,6 +35,7 @@ import com.example.cy.myapplication.activity.ItemsViewGroupTestActivity;
 import com.example.cy.myapplication.activity.JPushTestActivity;
 import com.example.cy.myapplication.activity.JiecaoActivity;
 import com.example.cy.myapplication.activity.PhotoViewActivity;
+import com.example.cy.myapplication.activity.QrCreateActivity;
 import com.example.cy.myapplication.activity.RotatingMenuActivity;
 import com.example.cy.myapplication.activity.ScrollTogetherActivity;
 import com.example.cy.myapplication.activity.SeekBarActivity;
@@ -116,6 +117,7 @@ public class MainActivity extends BaseActivity {
                     new ItemMode("像头预览，拍照发送图片到服务器进行识别", CameraPreviewActivity.class),
                     new ItemMode("自定义动画等待框", CustomLoadingActivity.class),
                     new ItemMode("二维码扫描", QrScanActivity.class),
+                    new ItemMode("二维码生成", QrCreateActivity.class),
                     new ItemMode("动态壁纸", LiveWallpapersActivity.class),
                     new ItemMode("获取文件地址", FilePathActivity.class),
                     new ItemMode("官方侧滑v4.widget.DrawerLayout", DrawerLayoutActivity.class),
