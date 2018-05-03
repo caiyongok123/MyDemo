@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+<LinearLayout
+    android:id="@+id/linearLayout"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:background="@drawable/shape_corners_10dp_white_bg"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:text="Title"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content" />
+
+
+    <ImageView
+        android:id="@+id/iv"
+        android:visibility="gone"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="61dp" />
+
+
+
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:autoLink="all"
+        tools:text="messagemessagemessagemessagemessage"
+        android:gravity="center"
+        android:textColor="@color/grey_666"
+        android:textSize="14sp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/et"
+        android:visibility="gone"
+        android:padding="15dp"
+        android:background="@drawable/shape_corners_3dp_white_bg_line_1dp_grey_999"
+        android:text=""
+        android:gravity="start"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="11dp"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content" />
+
+    <include layout="@layout/view_line_bg_grey"
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:divider="@drawable/shape_line_vertical_0_5dp"
+        android:showDividers="middle"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:text="取消"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:background="@null"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btn_middle"
+            android:text="middle"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:background="@drawable/selector_white_btn_bg"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:text="确定"
+            android:textSize="16sp"
+            android:textColor="@color/grey_999"
+            android:background="@null"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</LinearLayout>
+    <ImageView
+        android:id="@+id/right_cancel_btn"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/ic_back_white"
+        android:layout_alignRight="@+id/linearLayout"
+        android:padding="15dp"
+        android:visibility="gone"
+        />
+</RelativeLayout>
